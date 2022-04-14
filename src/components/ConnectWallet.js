@@ -12,15 +12,15 @@ function ConnectWallet(props) {
             <button
                 onClick={(e) => {
                 e.preventDefault();
-                dispatch(connect());
-                getData();
-                console.log(blockchain.account);
+                props.dispatch(connect());
+                props.getData();
+                console.log(props.blockchain.account);
                 }}
             >
                 Connect Wallet
             </button>
-            {blockchain.errorMsg}
-            {console.log(blockchain)}
+            {props.blockchain.errorMsg}
+            {console.log(props.blockchain)}
             </div>
         );
     }

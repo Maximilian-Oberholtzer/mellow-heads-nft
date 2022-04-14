@@ -6,7 +6,7 @@ import ConnectWallet from "./ConnectWallet";
 
 function Main() {
 
-    // initiate blockchain data
+    // initiate blockchain data shared among components
     const dispatch = useDispatch();
     const blockchain = useSelector((state) => state.blockchain);
     const data = useSelector((state) => state.data);
@@ -107,11 +107,10 @@ function Main() {
 
     return (
         <div>
-            Hello World
             <ConnectWallet
-                dispatch={this.dispatch}
-                getData={this.getData}
-                blockchain={this.blockchain}
+                dispatch={dispatch}
+                getData={getData}
+                blockchain={blockchain}
             />
         </div>
     );
