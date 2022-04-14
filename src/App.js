@@ -2,9 +2,9 @@ import "./App.css";
 import Main from "./components/Main.js";
 
 function App() {
-  return(
+  return (
     <div>
-      <Main/>
+      <Main />
     </div>
   );
 }

@@ -1,28 +1,39 @@
-import React, { useEffect, useState, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
+//import React, { useEffect, useState, useRef } from "react";
+import React from "react";
+//import { useDispatch, useSelector } from "react-redux";
 import { connect } from "../redux/blockchain/blockchainActions";
-import { fetchData } from "../redux/data/dataActions";
+//import { fetchData } from "../redux/data/dataActions";
 
 function ConnectWallet(props) {
+  const { blockchain } = props;
 
-    console.log(props);
-
-    return (
-            <div>
-            <button
-                onClick={(e) => {
-                e.preventDefault();
-                props.dispatch(connect());
-                props.getData();
-                console.log(props.blockchain.account);
-                }}
-            >
-                Connect Wallet
-            </button>
-            {props.blockchain.errorMsg}
-            {console.log(props.blockchain)}
-            </div>
-        );
+  function onClickConnectWallet(e) {
+    e.preventDefault();
+    if (
+      !blockchain.account ||
+      !blockchain.smartContract ||
+      !blockchain.account
+    ) {
+      props.dispatch(connect());
+      props.getData();
     }
+  }
+
+  return (
+    <div>
+      <button onClick={onClickConnectWallet}>
+        {!blockchain.account ||
+        !blockchain.smartContract ||
+        !blockchain.account ? (
+          <div>Connect Wallet</div>
+        ) : (
+          <div>Connected</div>
+        )}
+      </button>
+      Connected Account: {blockchain.account}
+      {blockchain.errorMsg}
+    </div>
+  );
+}
 
 export default ConnectWallet;
