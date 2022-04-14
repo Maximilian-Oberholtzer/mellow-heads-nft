@@ -117,6 +117,7 @@ function WalletConnect() {
                 Connect Wallet
             </button>
             {blockchain.errorMsg}
+            {console.log(blockchain)}
             </div>
         );
     }
