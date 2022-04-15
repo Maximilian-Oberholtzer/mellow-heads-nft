@@ -3,23 +3,23 @@ import { fetchData } from "../redux/data/dataActions";
 
 function MintNFT(props) {
   const [claimingNft, setClaimingNft] = useState(false);
-  const [feedback, setFeedback] = useState(`Click buy to mint your NFT.`);
+  const [feedback, setFeedback] = useState(`Click mint to mint your NFT.`);
   const [mintAmount, setMintAmount] = useState(1);
 
   const claimNFTs = () => {
-    const cost = props.CONFIG.WEI_COST;
-    const gasLimit = props.CONFIG.GAS_LIMIT;
+    const cost = props.config.WEI_COST;
+    const gasLimit = props.config.GAS_LIMIT;
     const totalCostWei = (cost * mintAmount).toString();
     const totalGasLimit = (gasLimit * mintAmount).toString();
     console.log("Cost: ", totalCostWei);
     console.log("Gas limit: ", totalGasLimit);
-    setFeedback(`Minting your ${props.CONFIG.NFT_NAME}...`);
+    setFeedback(`Minting your ${props.config.NFT_NAME}...`);
     setClaimingNft(true);
     props.blockchain.smartContract.methods
       .mint(props.blockchain.account, mintAmount)
       .send({
         gasLimit: String(totalGasLimit),
-        to: props.CONFIG.CONTRACT_ADDRESS,
+        to: props.config.CONTRACT_ADDRESS,
         from: props.blockchain.account,
         value: totalCostWei,
       })
@@ -31,7 +31,7 @@ function MintNFT(props) {
       .then((receipt) => {
         console.log(receipt);
         setFeedback(
-          `WOW, the ${props.CONFIG.NFT_NAME} is yours! go visit Opensea.io to view it.`
+          `WOW, the ${props.config.NFT_NAME} is yours! go visit Opensea.io to view it.`
         );
         setClaimingNft(false);
         props.dispatch(fetchData(props.blockchain.account));

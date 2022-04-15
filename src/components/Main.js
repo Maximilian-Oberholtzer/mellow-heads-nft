@@ -10,7 +10,7 @@ function Main() {
   const dispatch = useDispatch();
   const blockchain = useSelector((state) => state.blockchain);
   const data = useSelector((state) => state.data);
-  const [CONFIG, SET_CONFIG] = useState({
+  const [config, setConfig] = useState({
     CONTRACT_ADDRESS: "",
     SCAN_LINK: "",
     NETWORK: {
@@ -48,8 +48,8 @@ function Main() {
         Accept: "application/json",
       },
     });
-    const config = await configResponse.json();
-    SET_CONFIG(config);
+    const configFile = await configResponse.json();
+    setConfig(configFile[process.env.REACT_APP_NETWORK_CONFIG]);
   };
 
   useEffect(() => {
@@ -72,7 +72,7 @@ function Main() {
       />
       <MintNFT
         dispatch={dispatch}
-        CONFIG={CONFIG}
+        config={config}
         blockchain={blockchain}
         getData={getData}
       />

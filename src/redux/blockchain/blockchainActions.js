@@ -36,6 +36,7 @@ const updateAccountRequest = (payload) => {
   };
 };
 
+//User requests to connect to Metamask with button
 export const connect = () => {
   return async (dispatch) => {
     dispatch(connectRequest());
@@ -65,10 +66,10 @@ export const connect = () => {
         const networkId = await ethereum.request({
           method: "net_version",
         });
-        if (networkId == CONFIG.NETWORK.ID) {
+        if (networkId == CONFIG[process.env.REACT_APP_NETWORK_CONFIG].NETWORK.ID) {
           const SmartContractObj = new Web3EthContract(
             abi,
-            CONFIG.CONTRACT_ADDRESS
+            CONFIG[process.env.REACT_APP_NETWORK_CONFIG].CONTRACT_ADDRESS
           );
           dispatch(
             connectSuccess({
@@ -86,7 +87,7 @@ export const connect = () => {
           });
           // Add listeners end
         } else {
-          dispatch(connectFailed(`Change network to ${CONFIG.NETWORK.NAME}.`));
+          dispatch(connectFailed(`Change network to ${CONFIG[process.env.REACT_APP_NETWORK_CONFIG].NETWORK.NAME}.`));
         }
       } catch (err) {
         dispatch(connectFailed("Something went wrong."));
@@ -97,6 +98,8 @@ export const connect = () => {
   };
 };
 
+//Checks if Metamask is already connected
+//if it is --> load data
 export const check = () => {
   return async (dispatch) => {
     dispatch(connectCheck());
@@ -126,10 +129,10 @@ export const check = () => {
         const networkId = await ethereum.request({
           method: "net_version",
         });
-        if (networkId == CONFIG.NETWORK.ID) {
+        if (networkId == CONFIG[process.env.REACT_APP_NETWORK_CONFIG].NETWORK.ID) {
           const SmartContractObj = new Web3EthContract(
             abi,
-            CONFIG.CONTRACT_ADDRESS
+            CONFIG[process.env.REACT_APP_NETWORK_CONFIG].CONTRACT_ADDRESS
           );
           dispatch(
             connectSuccess({
@@ -147,7 +150,7 @@ export const check = () => {
           });
           // Add listeners end
         } else {
-          dispatch(connectFailed(`Change network to ${CONFIG.NETWORK.NAME}.`));
+          dispatch(connectFailed(`Change network to ${CONFIG[process.env.REACT_APP_NETWORK_CONFIG].NETWORK.NAME}.`));
         }
       } catch (err) {
         dispatch(connectFailed("Something went wrong."));
