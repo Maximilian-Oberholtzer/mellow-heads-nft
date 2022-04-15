@@ -30,7 +30,7 @@
     "SYMBOL": "MHNFT",
     "MAX_SUPPLY": 5000,
     "WEI_COST": 4000000000000000000,
-    "DISPLAY_COST": 5,
+    "DISPLAY_COST": 4,
     "GAS_LIMIT": 285000,
     "MARKETPLACE": "Opeansea",
     "MARKETPLACE_LINK": "https://opensea.io/collection/mellow-heads-nft",

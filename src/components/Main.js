@@ -53,6 +53,7 @@ function Main() {
     console.log(configFile[process.env.REACT_APP_NETWORK_CONFIG]);
   };
 
+  // Set config and check if wallet is already connected
   useEffect(() => {
     getConfig();
     checkConnection();
