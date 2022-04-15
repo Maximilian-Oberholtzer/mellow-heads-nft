@@ -19,8 +19,8 @@
   },
 
   "MAINNET": {
-    "CONTRACT_ADDRESS": "0xC15FD18F681E6d98a1d0dC22bdaB571B8aC3e086",
-    "SCAN_LINK": "https://mumbai.polygonscan.com/address/0xC15FD18F681E6d98a1d0dC22bdaB571B8aC3e086",
+    "CONTRACT_ADDRESS": "0x317160c8e84fB6822e22C54a657704A76F1EF237",
+    "SCAN_LINK": "https://polygonscan.com/address/0x317160c8e84fB6822e22C54a657704A76F1EF237",
     "NETWORK": {
       "NAME": "Polygon",
       "SYMBOL": "Matic",
@@ -29,7 +29,7 @@
     "NFT_NAME": "Mellow Heads NFT",
     "SYMBOL": "MHNFT",
     "MAX_SUPPLY": 5000,
-    "WEI_COST": 5000000000000000000,
+    "WEI_COST": 4000000000000000000,
     "DISPLAY_COST": 5,
     "GAS_LIMIT": 285000,
     "MARKETPLACE": "Opeansea",

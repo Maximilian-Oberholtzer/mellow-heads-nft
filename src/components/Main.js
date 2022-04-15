@@ -50,6 +50,7 @@ function Main() {
     });
     const configFile = await configResponse.json();
     setConfig(configFile[process.env.REACT_APP_NETWORK_CONFIG]);
+    console.log(configFile[process.env.REACT_APP_NETWORK_CONFIG]);
   };
 
   useEffect(() => {
