@@ -3,9 +3,9 @@ import { Container } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import { check } from "../redux/blockchain/blockchainActions";
 import { fetchData } from "../redux/data/dataActions";
-import ConnectWallet from "./ConnectWallet";
 import MintNFT from "./MintNFT";
 import Navbar from "./Navbar";
+import Popup from "./Popup";
 
 function Main() {
   // initiate blockchain data shared among components
@@ -70,14 +70,12 @@ function Main() {
   return (
     <div style={{ backgroundColor: "#d1ccc4" }}>
       <Navbar dispatch={dispatch} blockchain={blockchain} getData={getData} />
-      <Container>
-        <MintNFT
-          dispatch={dispatch}
-          config={config}
-          blockchain={blockchain}
-          getData={getData}
-        />
-      </Container>
+      <MintNFT
+        dispatch={dispatch}
+        config={config}
+        blockchain={blockchain}
+        getData={getData}
+      />
     </div>
   );
 }
