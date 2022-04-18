@@ -5,7 +5,7 @@ import { check } from "../redux/blockchain/blockchainActions";
 import { fetchData } from "../redux/data/dataActions";
 import MintNFT from "./MintNFT";
 import Navbar from "./Navbar";
-import Popup from "./Popup";
+import Welcome from "./Welcome";
 
 function Main() {
   // initiate blockchain data shared among components
@@ -52,7 +52,6 @@ function Main() {
     });
     const configFile = await configResponse.json();
     setConfig(configFile[process.env.REACT_APP_NETWORK_CONFIG]);
-    console.log(configFile[process.env.REACT_APP_NETWORK_CONFIG]);
   };
 
   // Set config and check if wallet is already connected
@@ -65,11 +64,10 @@ function Main() {
     getData();
   }, [blockchain.account]);
 
-  console.log(blockchain);
-
   return (
-    <div style={{ backgroundColor: "#d1ccc4" }}>
+    <div style={{ backgroundColor: "#d1ccc4", height: "100vh" }}>
       <Navbar dispatch={dispatch} blockchain={blockchain} getData={getData} />
+      <Welcome />
       <MintNFT
         dispatch={dispatch}
         config={config}

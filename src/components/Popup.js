@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 
@@ -26,9 +26,8 @@ const useStyles = makeStyles((theme) => ({
 
 function Popup(props) {
   const classes = useStyles();
-  const [modalStyle] = React.useState(getModalStyle);
-  const [open, setOpen] = React.useState(false);
-  console.log(props.errorMsg);
+  const [modalStyle] = useState(getModalStyle);
+  const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
     setOpen(true);
@@ -50,7 +49,7 @@ function Popup(props) {
     if (props.errorMsg) {
       handleOpen();
     }
-  }, [props.errorMsg]);
+  }, [props.errorMsg, props.errorCount]);
 
   return (
     <div>

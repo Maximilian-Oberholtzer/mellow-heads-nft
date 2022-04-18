@@ -44,8 +44,6 @@ function ConnectWallet(props) {
       props.dispatch(connect());
       props.getData();
     }
-    // Open error message popup if cannot connect wallet
-    console.log(blockchain.errorMsg);
   }
 
   return (

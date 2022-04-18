@@ -1,21 +1,43 @@
 import React, { useState } from "react";
 import { fetchData } from "../redux/data/dataActions";
-import { Button } from "@material-ui/core";
+import { Button, Container, Typography } from "@material-ui/core";
+import Popup from "./Popup";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  container: {
+    marginTop: "16px",
+    padding: "20px",
+  },
+  button: {
+    backgroundColor: "#7c4a24",
+    color: "#d5dadd",
+  },
+  text: {
+    textAlign: "center",
+  },
+}));
 
 function MintNFT(props) {
+  const classes = useStyles();
   const [claimingNft, setClaimingNft] = useState(false);
   const [feedback, setFeedback] = useState(`Click mint to mint your NFT.`);
   const [mintAmount, setMintAmount] = useState(1);
+  const [errorMsg, setErrorMsg] = useState("");
+  const [errorCount, setErrorCount] = useState(0);
   const { blockchain } = props;
 
   function onClickClaimNFT(e) {
     e.preventDefault();
     if (blockchain.account && blockchain.smartContract && blockchain.account) {
       //proceed with minting
+      setClaimingNft(true);
       claimNFTs();
       props.getData();
     } else {
-      console.log("Wallet not connected!");
+      //Show error popup
+      setErrorMsg("Please connect your wallet before minting.");
+      setErrorCount(errorCount + 1);
     }
   }
 
@@ -52,7 +74,7 @@ function MintNFT(props) {
       });
   };
 
-  const decrementMintAmount = () => {
+  const decreaseMintAmount = () => {
     let newMintAmount = mintAmount - 1;
     if (newMintAmount < 1) {
       newMintAmount = 1;
@@ -60,24 +82,35 @@ function MintNFT(props) {
     setMintAmount(newMintAmount);
   };
 
-  const incrementMintAmount = () => {
+  const increaseMintAmount = () => {
     let newMintAmount = mintAmount + 1;
-    if (newMintAmount > 50) {
-      newMintAmount = 50;
+    if (newMintAmount > 100) {
+      newMintAmount = 100;
     }
     setMintAmount(newMintAmount);
   };
 
   return (
     <div>
-      <Button onClick={onClickClaimNFT}>Mint</Button>
-      {blockchain.account === null ||
-      blockchain.smartContract === null ||
-      blockchain.account === undefined ? (
-        <div>Please connect wallet before Minting</div>
-      ) : (
-        <div>{feedback}</div>
-      )}
+      <Container
+        style={{ backgroundColor: "#d1ccc4", border: "1px solid black" }}
+        className={classes.container}
+        maxWidth="sm"
+      >
+        <Typography variant="h4" className={classes.text}>
+          Mint your own for {props.config.DISPLAY_COST} Matic
+        </Typography>
+        <Typography className={classes.text}>
+          <Button
+            className={classes.button}
+            onClick={onClickClaimNFT}
+            disabled={claimingNft}
+          >
+            {!claimingNft ? <div>Mint</div> : <div>Busy</div>}
+          </Button>
+        </Typography>
+        <Popup errorMsg={errorMsg} errorCount={errorCount} />
+      </Container>
     </div>
   );
 }
