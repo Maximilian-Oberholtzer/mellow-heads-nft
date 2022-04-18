@@ -1,11 +1,36 @@
-//import React, { useEffect, useState, useRef } from "react";
-import React from "react";
-//import { useDispatch, useSelector } from "react-redux";
+import React, { useState, useEffect } from "react";
 import { connect } from "../redux/blockchain/blockchainActions";
-//import { fetchData } from "../redux/data/dataActions";
+import { Button } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
+
+const useStyles = makeStyles((theme) => ({
+  button: {
+    backgroundColor: "#7c4a24",
+    color: "#d5dadd",
+  },
+}));
 
 function ConnectWallet(props) {
   const { blockchain } = props;
+  const classes = useStyles();
+  const [accountDisplay, setAccountDisplay] = useState("Connect");
+
+  useEffect(() => {
+    console.log(blockchain.account);
+    if (blockchain.account) {
+      const display =
+        blockchain.account.length > 4
+          ? `${blockchain.account.substring(
+              0,
+              4
+            )}...${blockchain.account.substring(
+              blockchain.account.length - 4,
+              blockchain.account.length
+            )}`
+          : blockchain.account;
+      setAccountDisplay(display);
+    }
+  }, [blockchain]);
 
   function onClickConnectWallet(e) {
     e.preventDefault();
@@ -21,17 +46,9 @@ function ConnectWallet(props) {
 
   return (
     <div>
-      <button onClick={onClickConnectWallet}>
-        {!blockchain.account ||
-        !blockchain.smartContract ||
-        !blockchain.account ? (
-          <div>Connect Wallet</div>
-        ) : (
-          <div>Connected</div>
-        )}
-      </button>
-      Connected Account: {blockchain.account}
-      {blockchain.errorMsg}
+      <Button className={classes.button} onClick={onClickConnectWallet}>
+        {accountDisplay}
+      </Button>
     </div>
   );
 }

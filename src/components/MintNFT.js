@@ -1,11 +1,29 @@
 import React, { useState } from "react";
 import { fetchData } from "../redux/data/dataActions";
+import { Button } from "@material-ui/core";
 
 function MintNFT(props) {
   const [claimingNft, setClaimingNft] = useState(false);
   const [feedback, setFeedback] = useState(`Click mint to mint your NFT.`);
   const [mintAmount, setMintAmount] = useState(1);
+  const { blockchain } = props;
 
+  function onClickClaimNFT(e) {
+    e.preventDefault();
+    if (
+      blockchain.account !== null ||
+      blockchain.smartContract !== null ||
+      blockchain.account !== undefined
+    ) {
+      //proceed with minting
+      claimNFTs();
+      props.getData();
+    } else {
+      console.log("Wallet not connected!");
+    }
+  }
+
+  //Send data to Smart Contract with Metamask
   const claimNFTs = () => {
     const cost = props.config.WEI_COST;
     const gasLimit = props.config.GAS_LIMIT;
@@ -15,12 +33,12 @@ function MintNFT(props) {
     console.log("Gas limit: ", totalGasLimit);
     setFeedback(`Minting your ${props.config.NFT_NAME}...`);
     setClaimingNft(true);
-    props.blockchain.smartContract.methods
-      .mint(props.blockchain.account, mintAmount)
+    blockchain.smartContract.methods
+      .mint(blockchain.account, mintAmount)
       .send({
         gasLimit: String(totalGasLimit),
         to: props.config.CONTRACT_ADDRESS,
-        from: props.blockchain.account,
+        from: blockchain.account,
         value: totalCostWei,
       })
       .once("error", (err) => {
@@ -34,7 +52,7 @@ function MintNFT(props) {
           `WOW, the ${props.config.NFT_NAME} is yours! go visit Opensea.io to view it.`
         );
         setClaimingNft(false);
-        props.dispatch(fetchData(props.blockchain.account));
+        props.dispatch(fetchData(blockchain.account));
       });
   };
 
@@ -56,27 +74,10 @@ function MintNFT(props) {
 
   return (
     <div>
-      <button
-        onClick={(e) => {
-          e.preventDefault();
-          if (
-            props.blockchain.account !== null ||
-            props.blockchain.smartContract !== null ||
-            props.blockchain.account !== undefined
-          ) {
-            //proceed with minting
-            claimNFTs();
-            props.getData();
-          } else {
-            console.log("Wallet not connected!");
-          }
-        }}
-      >
-        Mint
-      </button>
-      {props.blockchain.account === null ||
-      props.blockchain.smartContract === null ||
-      props.blockchain.account === undefined ? (
+      <Button onClick={onClickClaimNFT}>Mint</Button>
+      {blockchain.account === null ||
+      blockchain.smartContract === null ||
+      blockchain.account === undefined ? (
         <div>Please connect wallet before Minting</div>
       ) : (
         <div>{feedback}</div>
