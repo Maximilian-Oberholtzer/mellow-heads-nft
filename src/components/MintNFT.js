@@ -10,11 +10,7 @@ function MintNFT(props) {
 
   function onClickClaimNFT(e) {
     e.preventDefault();
-    if (
-      blockchain.account !== null ||
-      blockchain.smartContract !== null ||
-      blockchain.account !== undefined
-    ) {
+    if (blockchain.account && blockchain.smartContract && blockchain.account) {
       //proceed with minting
       claimNFTs();
       props.getData();
