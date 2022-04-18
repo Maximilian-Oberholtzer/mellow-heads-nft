@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { fetchData } from "../redux/data/dataActions";
-import { Button, Container, Typography } from "@material-ui/core";
+import { Button, Container, IconButton, Typography } from "@material-ui/core";
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
+import CircularProgress from "@mui/material/CircularProgress";
 import Popup from "./Popup";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -13,8 +16,12 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#7c4a24",
     color: "#d5dadd",
   },
-  text: {
+  center: {
     textAlign: "center",
+  },
+  progressCircle: {
+    width: "16px !important",
+    height: "16px !important",
   },
 }));
 
@@ -31,7 +38,6 @@ function MintNFT(props) {
     e.preventDefault();
     if (blockchain.account && blockchain.smartContract && blockchain.account) {
       //proceed with minting
-      setClaimingNft(true);
       claimNFTs();
       props.getData();
     } else {
@@ -97,18 +103,33 @@ function MintNFT(props) {
         className={classes.container}
         maxWidth="sm"
       >
-        <Typography variant="h4" className={classes.text}>
+        <Typography variant="h4" className={classes.center}>
           Mint your own for {props.config.DISPLAY_COST} Matic
         </Typography>
-        <Typography className={classes.text}>
+        <div className={classes.center}>
+          <IconButton onClick={decreaseMintAmount} disabled={claimingNft}>
+            <RemoveCircleOutlineIcon />
+          </IconButton>
+          {mintAmount}
+          <IconButton onClick={increaseMintAmount} disabled={claimingNft}>
+            <AddCircleOutlineIcon />
+          </IconButton>
+        </div>
+        <div className={classes.center}>
           <Button
             className={classes.button}
             onClick={onClickClaimNFT}
             disabled={claimingNft}
           >
-            {!claimingNft ? <div>Mint</div> : <div>Busy</div>}
+            {!claimingNft ? (
+              <div>Mint</div>
+            ) : (
+              <div>
+                <CircularProgress className={classes.progressCircle} />
+              </div>
+            )}
           </Button>
-        </Typography>
+        </div>
         <Popup errorMsg={errorMsg} errorCount={errorCount} />
       </Container>
     </div>
