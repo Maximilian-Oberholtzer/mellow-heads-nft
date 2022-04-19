@@ -6,6 +6,8 @@ import {
   IconButton,
   Typography,
   Grid,
+  useTheme,
+  useMediaQuery,
 } from "@material-ui/core";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
@@ -85,6 +87,7 @@ function MintNFT(props) {
     setMintAmount(newMintAmount);
   };
 
+  //Used when minting is still active
   const mintDisplay = (
     <>
       <Container className={classes.container} maxWidth="sm">
@@ -131,22 +134,38 @@ function MintNFT(props) {
     </>
   );
 
+  const theme = useTheme();
+  const collapse = useMediaQuery(theme.breakpoints.down("sm"));
+
   return (
     <div className={classes.root}>
-      <Grid container spacing={0}>
-        <Grid item xs={4}>
+      <Grid
+        container
+        wrap={"wrap"}
+        spacing={0}
+        alignItems={"center"}
+        justifyContent={"center"}
+        direction={collapse ? "column" : "row"}
+      >
+        <Grid item xs={collapse ? 0 : 4}>
           <center>
             <NFTgif gifNum={1} />
           </center>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={collapse ? 0 : 4}>
           {mintDisplay}
         </Grid>
-        <Grid item xs={4}>
-          <center>
-            <NFTgif gifNum={2} />
-          </center>
-        </Grid>
+        {collapse ? (
+          <></>
+        ) : (
+          <>
+            <Grid item xs={4}>
+              <center>
+                <NFTgif gifNum={2} />
+              </center>
+            </Grid>
+          </>
+        )}
       </Grid>
     </div>
   );

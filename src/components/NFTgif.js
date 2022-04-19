@@ -7,9 +7,9 @@ function NFTgif(props) {
   return (
     <>
       {props.gifNum == 1 ? (
-        <img style={{ width: "50%" }} src={MHgif1} />
+        <img style={{ width: "30vh", borderRadius: "6px" }} src={MHgif1} />
       ) : (
-        <img style={{ width: "50%" }} src={MHgif2} />
+        <img style={{ width: "30vh", borderRadius: "6px" }} src={MHgif2} />
       )}
     </>
   );

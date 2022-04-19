@@ -7,7 +7,6 @@ const tertiaryColor = "#B4846C";
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
     backgroundColor: secondaryColor,
-    height: "100vh",
   },
   //navbar
   root: {
@@ -61,8 +60,8 @@ const useStyles = makeStyles((theme) => ({
     color: primaryColor,
   },
   progressCircle: {
-    width: "25px !important",
-    height: "25px !important",
+    width: "24px !important",
+    height: "24px !important",
   },
   //welcome
   title: {
@@ -83,6 +82,7 @@ const useStyles = makeStyles((theme) => ({
     width: 250,
     backgroundColor: secondaryColor,
     border: "2px solid #000",
+    borderRadius: "6px",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
     color: primaryColor,

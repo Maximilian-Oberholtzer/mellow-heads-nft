@@ -25,11 +25,11 @@ function Welcome(props) {
         </Typography>
         <Typography className={classes.subTitle}>
           <Button onClick={openMarketplace} className={classes.textButton}>
-            OpenSea Marketplace
+            <u>OpenSea Marketplace</u>
           </Button>
           |
           <Button onClick={openSmartContract} className={classes.textButton}>
-            Smart Contract Address
+            <u>Smart Contract Address</u>
           </Button>
         </Typography>
       </Container>
