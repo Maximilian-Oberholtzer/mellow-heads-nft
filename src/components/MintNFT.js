@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
   container: {
     marginTop: "16px",
     padding: "20px",
+    color: "#7c4a24",
   },
   button: {
     backgroundColor: "#7c4a24",
@@ -20,8 +21,8 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
   },
   progressCircle: {
-    width: "16px !important",
-    height: "16px !important",
+    width: "17px !important",
+    height: "17px !important",
   },
 }));
 
@@ -42,7 +43,7 @@ function MintNFT(props) {
       props.getData();
     } else {
       //Show error popup
-      setErrorMsg("Please connect your wallet before minting.");
+      setErrorMsg("Please connect your wallet before minting!");
       setErrorCount(errorCount + 1);
     }
   }
@@ -99,7 +100,7 @@ function MintNFT(props) {
   return (
     <div>
       <Container
-        style={{ backgroundColor: "#d1ccc4", border: "1px solid black" }}
+        style={{ backgroundColor: "#d5dadd" }}
         className={classes.container}
         maxWidth="sm"
       >
@@ -110,7 +111,7 @@ function MintNFT(props) {
           <IconButton onClick={decreaseMintAmount} disabled={claimingNft}>
             <RemoveCircleOutlineIcon />
           </IconButton>
-          {mintAmount}
+          <b>{mintAmount}</b>
           <IconButton onClick={increaseMintAmount} disabled={claimingNft}>
             <AddCircleOutlineIcon />
           </IconButton>

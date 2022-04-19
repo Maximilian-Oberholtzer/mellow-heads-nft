@@ -6,6 +6,7 @@ const useStyles = makeStyles((theme) => ({
   container: {
     marginTop: "16px",
     padding: "20px",
+    color: "#7c4a24",
   },
   title: {
     textAlign: "center",
@@ -21,7 +22,7 @@ function Welcome() {
     <div>
       <Container
         className={classes.container}
-        style={{ backgroundColor: "#d1ccc4", border: "1px solid black" }}
+        style={{ backgroundColor: "#d5dadd" }}
       >
         <Typography className={classes.title} variant="h2">
           Welcome to Mellow Heads NFT

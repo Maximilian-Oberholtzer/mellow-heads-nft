@@ -66,7 +66,9 @@ export const connect = () => {
         const networkId = await ethereum.request({
           method: "net_version",
         });
-        if (networkId == CONFIG[process.env.REACT_APP_NETWORK_CONFIG].NETWORK.ID) {
+        if (
+          networkId == CONFIG[process.env.REACT_APP_NETWORK_CONFIG].NETWORK.ID
+        ) {
           const SmartContractObj = new Web3EthContract(
             abi,
             CONFIG[process.env.REACT_APP_NETWORK_CONFIG].CONTRACT_ADDRESS
@@ -87,7 +89,13 @@ export const connect = () => {
           });
           // Add listeners end
         } else {
-          dispatch(connectFailed(`Change network to ${CONFIG[process.env.REACT_APP_NETWORK_CONFIG].NETWORK.NAME}.`));
+          dispatch(
+            connectFailed(
+              `Change network to ${
+                CONFIG[process.env.REACT_APP_NETWORK_CONFIG].NETWORK.NAME
+              }.`
+            )
+          );
         }
       } catch (err) {
         dispatch(connectFailed("Something went wrong."));
@@ -129,7 +137,9 @@ export const check = () => {
         const networkId = await ethereum.request({
           method: "net_version",
         });
-        if (networkId == CONFIG[process.env.REACT_APP_NETWORK_CONFIG].NETWORK.ID) {
+        if (
+          networkId == CONFIG[process.env.REACT_APP_NETWORK_CONFIG].NETWORK.ID
+        ) {
           const SmartContractObj = new Web3EthContract(
             abi,
             CONFIG[process.env.REACT_APP_NETWORK_CONFIG].CONTRACT_ADDRESS
@@ -150,7 +160,13 @@ export const check = () => {
           });
           // Add listeners end
         } else {
-          dispatch(connectFailed(`Change network to ${CONFIG[process.env.REACT_APP_NETWORK_CONFIG].NETWORK.NAME}.`));
+          dispatch(
+            connectFailed(
+              `Please change network to ${
+                CONFIG[process.env.REACT_APP_NETWORK_CONFIG].NETWORK.NAME
+              }!`
+            )
+          );
         }
       } catch (err) {
         dispatch(connectFailed("Something went wrong."));

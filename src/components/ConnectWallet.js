@@ -48,7 +48,13 @@ function ConnectWallet(props) {
 
   return (
     <div>
-      <Button className={classes.button} onClick={onClickConnectWallet}>
+      <Button
+        className={classes.button}
+        onClick={onClickConnectWallet}
+        color="#7c4a24"
+        size="large"
+        variant="outlined"
+      >
         {accountDisplay}
       </Button>
       <Popup errorMsg={blockchain.errorMsg} />

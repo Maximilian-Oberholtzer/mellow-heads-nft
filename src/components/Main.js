@@ -65,7 +65,7 @@ function Main() {
   }, [blockchain.account]);
 
   return (
-    <div style={{ backgroundColor: "#d1ccc4", height: "100vh" }}>
+    <div style={{ backgroundColor: "#d5dadd", height: "100vh" }}>
       <Navbar dispatch={dispatch} blockchain={blockchain} getData={getData} />
       <Welcome />
       <MintNFT
