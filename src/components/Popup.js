@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
+import useStyles from "./Styles";
 
 function getModalStyle() {
   const top = 50;
@@ -12,17 +12,6 @@ function getModalStyle() {
     transform: `translate(-${top}%, -${left}%)`,
   };
 }
-
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    position: "absolute",
-    width: 400,
-    backgroundColor: theme.palette.background.paper,
-    border: "2px solid #000",
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
-  },
-}));
 
 function Popup(props) {
   const classes = useStyles();
@@ -38,7 +27,7 @@ function Popup(props) {
   };
 
   const body = (
-    <div style={modalStyle} className={classes.paper}>
+    <div style={modalStyle} className={classes.popup}>
       <h2 id="simple-modal-title">Error</h2>
       <p id="simple-modal-description">{props.errorMsg}</p>
     </div>

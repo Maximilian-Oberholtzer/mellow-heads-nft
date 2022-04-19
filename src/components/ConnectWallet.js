@@ -3,13 +3,7 @@ import { connect } from "../redux/blockchain/blockchainActions";
 import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
 import Popup from "./Popup";
-
-const useStyles = makeStyles((theme) => ({
-  button: {
-    backgroundColor: "#7c4a24",
-    color: "#d5dadd",
-  },
-}));
+import useStyles from "./Styles";
 
 function ConnectWallet(props) {
   const { blockchain } = props;
@@ -51,9 +45,7 @@ function ConnectWallet(props) {
       <Button
         className={classes.button}
         onClick={onClickConnectWallet}
-        color="#7c4a24"
         size="large"
-        variant="outlined"
       >
         {accountDisplay}
       </Button>

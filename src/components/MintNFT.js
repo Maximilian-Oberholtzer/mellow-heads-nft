@@ -5,26 +5,7 @@ import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import CircularProgress from "@mui/material/CircularProgress";
 import Popup from "./Popup";
-import { makeStyles } from "@material-ui/core/styles";
-
-const useStyles = makeStyles((theme) => ({
-  container: {
-    marginTop: "16px",
-    padding: "20px",
-    color: "#7c4a24",
-  },
-  button: {
-    backgroundColor: "#7c4a24",
-    color: "#d5dadd",
-  },
-  center: {
-    textAlign: "center",
-  },
-  progressCircle: {
-    width: "17px !important",
-    height: "17px !important",
-  },
-}));
+import useStyles from "./Styles";
 
 function MintNFT(props) {
   const classes = useStyles();
@@ -99,15 +80,11 @@ function MintNFT(props) {
 
   return (
     <div>
-      <Container
-        style={{ backgroundColor: "#d5dadd" }}
-        className={classes.container}
-        maxWidth="sm"
-      >
-        <Typography variant="h4" className={classes.center}>
+      <Container className={classes.container} maxWidth="sm">
+        <Typography variant="h4" className={classes.mintText}>
           Mint your own for {props.config.DISPLAY_COST} Matic
         </Typography>
-        <div className={classes.center}>
+        <div className={classes.mintText}>
           <IconButton onClick={decreaseMintAmount} disabled={claimingNft}>
             <RemoveCircleOutlineIcon />
           </IconButton>
@@ -116,7 +93,7 @@ function MintNFT(props) {
             <AddCircleOutlineIcon />
           </IconButton>
         </div>
-        <div className={classes.center}>
+        <div className={classes.mintText}>
           <Button
             className={classes.button}
             onClick={onClickClaimNFT}
