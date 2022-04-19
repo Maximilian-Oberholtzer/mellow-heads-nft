@@ -1,11 +1,18 @@
 import React, { useState } from "react";
 import { fetchData } from "../redux/data/dataActions";
-import { Button, Container, IconButton, Typography } from "@material-ui/core";
+import {
+  Button,
+  Container,
+  IconButton,
+  Typography,
+  Grid,
+} from "@material-ui/core";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import CircularProgress from "@mui/material/CircularProgress";
 import Popup from "./Popup";
 import useStyles from "./Styles";
+import NFTgif from "./NFTgif";
 
 function MintNFT(props) {
   const classes = useStyles();
@@ -78,8 +85,8 @@ function MintNFT(props) {
     setMintAmount(newMintAmount);
   };
 
-  return (
-    <div>
+  const mintDisplay = (
+    <>
       <Container className={classes.container} maxWidth="sm">
         <Typography variant="h4" className={classes.mintText}>
           Mint your own for {props.config.DISPLAY_COST} Matic
@@ -121,6 +128,26 @@ function MintNFT(props) {
         </div>
         <Popup errorMsg={errorMsg} errorCount={errorCount} />
       </Container>
+    </>
+  );
+
+  return (
+    <div className={classes.root}>
+      <Grid container spacing={0}>
+        <Grid item xs={4}>
+          <center>
+            <NFTgif gifNum={1} />
+          </center>
+        </Grid>
+        <Grid item xs={4}>
+          {mintDisplay}
+        </Grid>
+        <Grid item xs={4}>
+          <center>
+            <NFTgif gifNum={2} />
+          </center>
+        </Grid>
+      </Grid>
     </div>
   );
 }

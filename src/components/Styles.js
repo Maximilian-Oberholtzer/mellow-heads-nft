@@ -16,7 +16,6 @@ const useStyles = makeStyles((theme) => ({
   navbar: {
     backgroundColor: secondaryColor,
     boxShadow: "none",
-    borderBottom: "4px solid " + primaryColor,
   },
   flexbox: {
     display: "flex",

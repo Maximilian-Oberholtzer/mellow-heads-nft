@@ -26,7 +26,7 @@ function Welcome(props) {
         <Typography className={classes.subTitle}>
           <Button onClick={openMarketplace} className={classes.textButton}>
             OpenSea Marketplace
-          </Button>{" "}
+          </Button>
           |
           <Button onClick={openSmartContract} className={classes.textButton}>
             Smart Contract Address

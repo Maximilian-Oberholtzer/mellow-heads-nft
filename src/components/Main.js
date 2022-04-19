@@ -7,6 +7,7 @@ import MintNFT from "./MintNFT";
 import Navbar from "./Navbar";
 import Welcome from "./Welcome";
 import useStyles from "./Styles";
+import NFTgif from "./NFTgif";
 
 function Main() {
   const classes = useStyles();
