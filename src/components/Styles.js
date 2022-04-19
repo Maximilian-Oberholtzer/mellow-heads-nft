@@ -1,4 +1,5 @@
 import { makeStyles } from "@material-ui/core";
+import { hover } from "@testing-library/user-event/dist/hover";
 
 const useStyles = makeStyles((theme) => ({
   //navbar
@@ -16,9 +17,17 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     color: "#525E75",
   },
+  navTextButton: {
+    marginRight: "12px",
+    color: "#525E75",
+    fontSize: "1rem",
+    "&:hover": {
+      backgroundColor: "rgba(0, 0, 0, 0.0)",
+    },
+  },
   //end navbar
   container: {
-    marginTop: "16px",
+    marginTop: "24px",
     padding: "20px",
   },
   button: {
@@ -39,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
   },
   subTitle: {
     textAlign: "center",
-    color: "#78938A",
+    color: "#525E75",
     fontSize: "1.5rem",
     marginTop: "16px",
   },

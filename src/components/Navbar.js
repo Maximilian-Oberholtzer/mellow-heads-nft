@@ -1,6 +1,6 @@
 import React from "react";
 import AppBar from "@material-ui/core/AppBar";
-import { Toolbar, Typography } from "@material-ui/core";
+import { Toolbar, Typography, Button } from "@material-ui/core";
 import ConnectWallet from "./ConnectWallet";
 import useStyles from "./Styles";
 
@@ -10,7 +10,20 @@ function Navbar(props) {
     <div className={classes.root}>
       <AppBar className={classes.navbar} position="static">
         <Toolbar>
-          <Typography className={classes.navTitle}>Mellow Heads NFT</Typography>
+          <Typography className={classes.navTitle}>
+            <Button className={classes.navTextButton} variant="text">
+              MHNFT
+            </Button>
+          </Typography>
+          <Button className={classes.navTextButton} variant="text">
+            Collection
+          </Button>
+          <Button className={classes.navTextButton} variant="text">
+            About
+          </Button>
+          <Button className={classes.navTextButton} variant="text">
+            Team
+          </Button>
           <ConnectWallet
             dispatch={props.dispatch}
             blockchain={props.blockchain}
