@@ -91,17 +91,17 @@ export const connect = () => {
         } else {
           dispatch(
             connectFailed(
-              `Change network to ${
+              `Please change network to ${
                 CONFIG[process.env.REACT_APP_NETWORK_CONFIG].NETWORK.NAME
-              }.`
+              }!`
             )
           );
         }
       } catch (err) {
-        dispatch(connectFailed("Something went wrong."));
+        dispatch(connectFailed("Something went wrong!"));
       }
     } else {
-      dispatch(connectFailed("Install Metamask."));
+      dispatch(connectFailed("Metamask not installed!"));
     }
   };
 };
@@ -169,10 +169,10 @@ export const check = () => {
           );
         }
       } catch (err) {
-        dispatch(connectFailed("Something went wrong."));
+        dispatch(connectFailed("Something went wrong!"));
       }
     } else {
-      dispatch(connectFailed("Install Metamask."));
+      dispatch(connectFailed("Metamask not installed!"));
     }
   };
 };

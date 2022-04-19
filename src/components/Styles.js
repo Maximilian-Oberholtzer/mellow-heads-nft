@@ -2,6 +2,7 @@ import { makeStyles } from "@material-ui/core";
 
 const primaryColor = "#7D5A50";
 const secondaryColor = "#FCDEC0";
+const tertiaryColor = "#B4846C";
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
@@ -15,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
   navbar: {
     backgroundColor: secondaryColor,
     boxShadow: "none",
+    borderBottom: "4px solid " + primaryColor,
   },
   flexbox: {
     display: "flex",
@@ -29,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "1rem",
     "&:hover": {
       backgroundColor: "rgba(0, 0, 0, 0.0)",
-      color: "#B4846C",
+      color: tertiaryColor,
     },
   },
   //end navbar
@@ -40,13 +42,16 @@ const useStyles = makeStyles((theme) => ({
   button: {
     backgroundColor: primaryColor,
     color: "white",
+    "&:hover": {
+      backgroundColor: tertiaryColor,
+    },
   },
   textButton: {
     color: primaryColor,
     fontSize: "1rem",
     "&:hover": {
       backgroundColor: "rgba(0, 0, 0, 0.0)",
-      color: "#B4846C",
+      color: tertiaryColor,
     },
   },
   mintText: {
