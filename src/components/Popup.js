@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Modal from "@material-ui/core/Modal";
 import useStyles from "./Styles";
+import { Typography } from "@material-ui/core";
 
 function getModalStyle() {
   const top = 50;
@@ -28,8 +29,8 @@ function Popup(props) {
 
   const body = (
     <div style={modalStyle} className={classes.popup}>
-      <h2 id="simple-modal-title">Error</h2>
-      <p id="simple-modal-description">{props.errorMsg}</p>
+      <Typography className={classes.popupTitle}>Error</Typography>
+      <Typography>{props.errorMsg}</Typography>
     </div>
   );
 

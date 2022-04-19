@@ -6,8 +6,10 @@ import { fetchData } from "../redux/data/dataActions";
 import MintNFT from "./MintNFT";
 import Navbar from "./Navbar";
 import Welcome from "./Welcome";
+import useStyles from "./Styles";
 
 function Main() {
+  const classes = useStyles();
   // initiate blockchain data shared among components
   const dispatch = useDispatch();
   const blockchain = useSelector((state) => state.blockchain);
@@ -65,9 +67,9 @@ function Main() {
   }, [blockchain.account]);
 
   return (
-    <div style={{ backgroundColor: "#F1DDBF", height: "100vh" }}>
+    <div className={classes.mainContainer}>
       <Navbar dispatch={dispatch} blockchain={blockchain} getData={getData} />
-      <Welcome />
+      <Welcome config={config} />
       <MintNFT
         dispatch={dispatch}
         config={config}

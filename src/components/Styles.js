@@ -1,13 +1,19 @@
 import { makeStyles } from "@material-ui/core";
-import { hover } from "@testing-library/user-event/dist/hover";
+
+const primaryColor = "#7D5A50";
+const secondaryColor = "#FCDEC0";
 
 const useStyles = makeStyles((theme) => ({
+  mainContainer: {
+    backgroundColor: secondaryColor,
+    height: "100vh",
+  },
   //navbar
   root: {
     flexGrow: 1,
   },
   navbar: {
-    backgroundColor: "#F1DDBF",
+    backgroundColor: secondaryColor,
     boxShadow: "none",
   },
   flexbox: {
@@ -15,14 +21,15 @@ const useStyles = makeStyles((theme) => ({
   },
   navTitle: {
     flexGrow: 1,
-    color: "#525E75",
+    color: primaryColor,
   },
   navTextButton: {
     marginRight: "12px",
-    color: "#525E75",
+    color: primaryColor,
     fontSize: "1rem",
     "&:hover": {
       backgroundColor: "rgba(0, 0, 0, 0.0)",
+      color: "#B4846C",
     },
   },
   //end navbar
@@ -31,35 +38,55 @@ const useStyles = makeStyles((theme) => ({
     padding: "20px",
   },
   button: {
-    backgroundColor: "#525E75",
+    backgroundColor: primaryColor,
     color: "white",
+  },
+  textButton: {
+    color: primaryColor,
+    fontSize: "1rem",
+    "&:hover": {
+      backgroundColor: "rgba(0, 0, 0, 0.0)",
+      color: "#B4846C",
+    },
   },
   mintText: {
     textAlign: "center",
-    color: "#525E75",
+    color: primaryColor,
+  },
+  iconButton: {
+    color: primaryColor,
   },
   progressCircle: {
-    width: "17px !important",
-    height: "17px !important",
+    width: "25px !important",
+    height: "25px !important",
   },
+  //welcome
   title: {
     textAlign: "center",
-    color: "#525E75",
+    color: primaryColor,
+    fontSize: "5rem",
   },
   subTitle: {
     textAlign: "center",
-    color: "#525E75",
+    color: primaryColor,
     fontSize: "1.5rem",
     marginTop: "16px",
   },
+  //end welcome
+  //popup
   popup: {
     position: "absolute",
-    width: 400,
-    backgroundColor: theme.palette.background.paper,
+    width: 250,
+    backgroundColor: secondaryColor,
     border: "2px solid #000",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
+    color: primaryColor,
   },
+  popupTitle: {
+    fontSize: "2rem",
+  },
+  //end popup
 }));
 
 export default useStyles;

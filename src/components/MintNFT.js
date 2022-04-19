@@ -85,11 +85,19 @@ function MintNFT(props) {
           Mint your own for {props.config.DISPLAY_COST} Matic
         </Typography>
         <div className={classes.mintText}>
-          <IconButton onClick={decreaseMintAmount} disabled={claimingNft}>
+          <IconButton
+            className={classes.iconButton}
+            onClick={decreaseMintAmount}
+            disabled={claimingNft}
+          >
             <RemoveCircleOutlineIcon />
           </IconButton>
           <b>{mintAmount}</b>
-          <IconButton onClick={increaseMintAmount} disabled={claimingNft}>
+          <IconButton
+            className={classes.iconButton}
+            onClick={increaseMintAmount}
+            disabled={claimingNft}
+          >
             <AddCircleOutlineIcon />
           </IconButton>
         </div>
@@ -102,9 +110,12 @@ function MintNFT(props) {
             {!claimingNft ? (
               <div>Mint</div>
             ) : (
-              <div>
-                <CircularProgress className={classes.progressCircle} />
-              </div>
+              <>
+                <CircularProgress
+                  style={{ color: "white" }}
+                  className={classes.progressCircle}
+                />
+              </>
             )}
           </Button>
         </div>
