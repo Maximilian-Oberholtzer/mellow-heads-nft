@@ -1,13 +1,11 @@
+import React from "react";
 import "./App.css";
 import Navbar from "./components/main/Navbar";
 import Main from "./components/main/Main";
 import Collection from "./components/collection/Collection";
-import React, { useEffect, useState } from "react";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
-import { useDispatch, useSelector } from "react-redux";
-import { check } from "./redux/blockchain/blockchainActions";
-import { fetchData } from "./redux/data/dataActions";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Config from "./Config";
 
 function App() {
   //set global font theme
@@ -18,60 +16,7 @@ function App() {
   });
 
   //initiate blockchain data shared among components
-  const dispatch = useDispatch();
-  const blockchain = useSelector((state) => state.blockchain);
-  const data = useSelector((state) => state.data);
-  const [config, setConfig] = useState({
-    CONTRACT_ADDRESS: "",
-    SCAN_LINK: "",
-    NETWORK: {
-      NAME: "",
-      SYMBOL: "",
-      ID: 0,
-    },
-    NFT_NAME: "",
-    SYMBOL: "",
-    MAX_SUPPLY: 1,
-    WEI_COST: 0,
-    DISPLAY_COST: 0,
-    GAS_LIMIT: 0,
-    MARKETPLACE: "",
-    MARKETPLACE_LINK: "",
-    SHOW_BACKGROUND: false,
-  });
-
-  const checkConnection = () => {
-    if (blockchain.account === null || blockchain.smartContract === null) {
-      dispatch(check());
-    }
-  };
-
-  const getData = () => {
-    if (blockchain.account && blockchain.smartContract) {
-      dispatch(fetchData(blockchain.account));
-    }
-  };
-
-  const getConfig = async () => {
-    const configResponse = await fetch("./config/config.json", {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    });
-    const configFile = await configResponse.json();
-    setConfig(configFile[process.env.REACT_APP_NETWORK_CONFIG]);
-  };
-
-  //set config and check if wallet is already connected
-  useEffect(() => {
-    getConfig();
-    checkConnection();
-  }, []);
-
-  useEffect(() => {
-    getData();
-  }, [blockchain.account]);
+  const { dispatch, blockchain, data, config, getData } = Config();
 
   return (
     <ThemeProvider theme={theme}>
