@@ -10,6 +10,14 @@ import {
 import ConnectWallet from "./ConnectWallet";
 import useStyles from "./Styles";
 import MenuIcon from "@mui/icons-material/Menu";
+import * as Scroll from "react-scroll";
+
+const aboutClick = () => {
+  Scroll.scroller.scrollTo("About", {
+    duration: 1000,
+    smooth: true,
+  });
+};
 
 function Navbar(props) {
   const classes = useStyles();
@@ -30,7 +38,9 @@ function Navbar(props) {
           ) : (
             <>
               <Button className={classes.navTextButton}>Collection</Button>
-              <Button className={classes.navTextButton}>About</Button>
+              <Button onClick={aboutClick} className={classes.navTextButton}>
+                About
+              </Button>
               <Button className={classes.navTextButton}>Team</Button>
               <ConnectWallet
                 dispatch={props.dispatch}

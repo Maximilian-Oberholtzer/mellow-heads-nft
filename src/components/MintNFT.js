@@ -27,7 +27,12 @@ function MintNFT(props) {
 
   function onClickClaimNFT(e) {
     e.preventDefault();
-    if (blockchain.account && blockchain.smartContract && blockchain.account) {
+    if (
+      blockchain.account &&
+      blockchain.smartContract &&
+      blockchain.account &&
+      mintAmount + props.data.totalSupply <= props.config.MAX_SUPPLY
+    ) {
       //proceed with minting
       claimNFTs();
       props.getData();
@@ -94,6 +99,9 @@ function MintNFT(props) {
         <Typography variant="h4" className={classes.mintText}>
           Mint your own for {props.config.DISPLAY_COST} Matic
         </Typography>
+        <Typography variant="h5" className={classes.mintText}>
+          {props.data.totalSupply} / {props.config.MAX_SUPPLY} minted
+        </Typography>
         <div className={classes.mintText}>
           <IconButton
             className={classes.iconButton}
@@ -138,7 +146,7 @@ function MintNFT(props) {
   const collapse = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
-    <div className={classes.root}>
+    <div className={classes.gridRoot}>
       <Grid
         container
         wrap={"wrap"}
@@ -147,12 +155,12 @@ function MintNFT(props) {
         justifyContent={"center"}
         direction={collapse ? "column" : "row"}
       >
-        <Grid item xs={collapse ? 0 : 4}>
+        <Grid item xs={collapse ? false : 4}>
           <center>
             <NFTgif gifNum={1} />
           </center>
         </Grid>
-        <Grid item xs={collapse ? 0 : 4}>
+        <Grid item xs={collapse ? false : 4}>
           {mintDisplay}
         </Grid>
         {collapse ? (

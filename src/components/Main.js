@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Container } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import { check } from "../redux/blockchain/blockchainActions";
 import { fetchData } from "../redux/data/dataActions";
@@ -7,7 +6,7 @@ import MintNFT from "./MintNFT";
 import Navbar from "./Navbar";
 import Welcome from "./Welcome";
 import useStyles from "./Styles";
-import NFTgif from "./NFTgif";
+import About from "./About";
 
 function Main() {
   const classes = useStyles();
@@ -41,7 +40,7 @@ function Main() {
   };
 
   const getData = () => {
-    if (blockchain.account !== "" && blockchain.smartContract !== null) {
+    if (blockchain.account && blockchain.smartContract) {
       dispatch(fetchData(blockchain.account));
     }
   };
@@ -76,7 +75,9 @@ function Main() {
         config={config}
         blockchain={blockchain}
         getData={getData}
+        data={data}
       />
+      <About />
     </div>
   );
 }

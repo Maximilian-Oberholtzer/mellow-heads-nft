@@ -7,6 +7,7 @@ const tertiaryColor = "#B4846C";
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
     backgroundColor: secondaryColor,
+    height: "200vh", // remove
   },
   //navbar
   root: {
@@ -52,6 +53,11 @@ const useStyles = makeStyles((theme) => ({
       color: tertiaryColor,
     },
   },
+  //mint container
+  gridRoot: {
+    flexGrow: 1,
+    marginTop: "48px",
+  },
   mintText: {
     textAlign: "center",
     color: primaryColor,
@@ -63,6 +69,7 @@ const useStyles = makeStyles((theme) => ({
     width: "24px !important",
     height: "24px !important",
   },
+  //end mint container
   //welcome
   title: {
     textAlign: "center",
@@ -91,6 +98,24 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "2rem",
   },
   //end popup
+  //accordian
+  accordian: {
+    backgroundColor: "#ffecd8",
+  },
+  accordianRoot: {
+    width: "66%",
+    marginTop: "24px",
+  },
+  accordianTitle: {
+    marginTop: "48px",
+    fontSize: "3rem",
+    color: primaryColor,
+  },
+  accordianText: {
+    textAlign: "center",
+    color: primaryColor,
+  },
+  //end accordian
 }));
 
 export default useStyles;
