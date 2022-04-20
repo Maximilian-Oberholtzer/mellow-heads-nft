@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { fetchData } from "../redux/data/dataActions";
+import { fetchData } from "../../redux/data/dataActions";
 import {
   Button,
   Container,
@@ -96,7 +96,7 @@ function MintNFT(props) {
   const mintDisplay = (
     <>
       <Container
-        className={classes.container}
+        className={classes.mintContainer}
         style={{ paddingTop: "0" }}
         maxWidth="sm"
       >

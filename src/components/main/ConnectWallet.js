@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { connect } from "../redux/blockchain/blockchainActions";
+import { connect } from "../../redux/blockchain/blockchainActions";
 import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
 import Popup from "./Popup";

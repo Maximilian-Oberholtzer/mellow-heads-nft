@@ -35,7 +35,6 @@ const useStyles = makeStyles((theme) => ({
   },
   //end navbar
   container: {
-    marginTop: "24px",
     padding: "20px",
   },
   button: {
@@ -54,6 +53,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   //mint container
+  mintContainer: {
+    marginTop: "24px",
+    padding: "20px",
+  },
   gridRoot: {
     flexGrow: 1,
     marginTop: "48px",
