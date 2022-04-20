@@ -11,6 +11,7 @@ import ConnectWallet from "./ConnectWallet";
 import useStyles from "./Styles";
 import MenuIcon from "@mui/icons-material/Menu";
 import * as Scroll from "react-scroll";
+import { Link } from "react-router-dom";
 
 const aboutClick = () => {
   Scroll.scroller.scrollTo("About", {
@@ -29,7 +30,15 @@ function Navbar(props) {
       <AppBar className={classes.navbar} position="static">
         <Toolbar>
           <Typography className={classes.navTitle}>
-            <Button className={classes.navTextButton}>MHNFT</Button>
+            <Button className={classes.navTextButton}>
+              <Link
+                to="/"
+                className={classes.navTextLink}
+                style={{ textDecoration: "none" }}
+              >
+                MHNFT
+              </Link>
+            </Button>
           </Typography>
           {collapse ? (
             <Button>
@@ -37,7 +46,15 @@ function Navbar(props) {
             </Button>
           ) : (
             <>
-              <Button className={classes.navTextButton}>Collection</Button>
+              <Button className={classes.navTextButton}>
+                <Link
+                  to="/collection"
+                  className={classes.navTextLink}
+                  style={{ textDecoration: "none" }}
+                >
+                  Collection
+                </Link>
+              </Button>
               <Button onClick={aboutClick} className={classes.navTextButton}>
                 About
               </Button>

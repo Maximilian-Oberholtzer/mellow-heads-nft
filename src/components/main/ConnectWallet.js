@@ -24,6 +24,8 @@ function ConnectWallet(props) {
             )}`
           : blockchain.account;
       setAccountDisplay(display);
+    } else {
+      setAccountDisplay("Connect");
     }
   }, [blockchain]);
 

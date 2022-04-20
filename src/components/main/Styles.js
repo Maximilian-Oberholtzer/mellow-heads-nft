@@ -33,6 +33,14 @@ const useStyles = makeStyles((theme) => ({
       color: tertiaryColor,
     },
   },
+  navTextLink: {
+    color: primaryColor,
+    fontSize: "1rem",
+    "&:hover": {
+      backgroundColor: "rgba(0, 0, 0, 0.0)",
+      color: tertiaryColor,
+    },
+  },
   //end navbar
   container: {
     padding: "20px",

@@ -1,12 +1,13 @@
 import "./App.css";
 import Navbar from "./components/main/Navbar";
 import Main from "./components/main/Main";
+import Collection from "./components/collection/Collection";
 import React, { useEffect, useState } from "react";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import { useDispatch, useSelector } from "react-redux";
 import { check } from "./redux/blockchain/blockchainActions";
 import { fetchData } from "./redux/data/dataActions";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   //set global font theme
@@ -16,7 +17,7 @@ function App() {
     },
   });
 
-  // initiate blockchain data shared among components
+  //initiate blockchain data shared among components
   const dispatch = useDispatch();
   const blockchain = useSelector((state) => state.blockchain);
   const data = useSelector((state) => state.data);
@@ -62,7 +63,7 @@ function App() {
     setConfig(configFile[process.env.REACT_APP_NETWORK_CONFIG]);
   };
 
-  // Set config and check if wallet is already connected
+  //set config and check if wallet is already connected
   useEffect(() => {
     getConfig();
     checkConnection();
@@ -74,14 +75,25 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Navbar dispatch={dispatch} blockchain={blockchain} getData={getData} />
-      <Main
-        dispatch={dispatch}
-        blockchain={blockchain}
-        getData={getData}
-        config={config}
-        data={data}
-      />
+      <Router>
+        <Navbar dispatch={dispatch} blockchain={blockchain} getData={getData} />
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={
+              <Main
+                dispatch={dispatch}
+                blockchain={blockchain}
+                getData={getData}
+                config={config}
+                data={data}
+              />
+            }
+          />
+          <Route exact path="/collection" element={<Collection />} />
+        </Routes>
+      </Router>
     </ThemeProvider>
   );
 }
