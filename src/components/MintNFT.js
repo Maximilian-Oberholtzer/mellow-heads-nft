@@ -95,9 +95,16 @@ function MintNFT(props) {
   //Used when minting is still active
   const mintDisplay = (
     <>
-      <Container className={classes.container} maxWidth="sm">
-        <Typography variant="h4" className={classes.mintText}>
-          Mint your own for {props.config.DISPLAY_COST} Matic
+      <Container
+        className={classes.container}
+        style={{ paddingTop: "0" }}
+        maxWidth="sm"
+      >
+        <Typography variant="h3" className={classes.mintText}>
+          Mint
+        </Typography>
+        <Typography variant="h5" className={classes.mintText}>
+          Each Mellow Head costs {props.config.DISPLAY_COST} Matic
         </Typography>
         <Typography variant="h5" className={classes.mintText}>
           {props.data.totalSupply} / {props.config.MAX_SUPPLY} minted
@@ -124,6 +131,7 @@ function MintNFT(props) {
             className={classes.button}
             onClick={onClickClaimNFT}
             disabled={claimingNft}
+            size="large"
           >
             {!claimingNft ? (
               <div>Mint</div>

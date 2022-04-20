@@ -66,8 +66,8 @@ const useStyles = makeStyles((theme) => ({
     color: primaryColor,
   },
   progressCircle: {
-    width: "24px !important",
-    height: "24px !important",
+    width: "26px !important",
+    height: "26px !important",
   },
   //end mint container
   //welcome
