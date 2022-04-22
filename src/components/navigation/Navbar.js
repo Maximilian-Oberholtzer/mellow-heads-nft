@@ -12,10 +12,9 @@ import useStyles from "../main/Styles";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Drawer, Box, List } from "@material-ui/core";
 import * as Scroll from "react-scroll";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Navbar(props) {
-  const location = useLocation();
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const classes = useStyles();
@@ -23,16 +22,18 @@ function Navbar(props) {
   const theme = useTheme();
   const collapse = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const aboutClick = async () => {
+  // close drawer if open and scroll to selected element
+  const scrollTo = async (element) => {
+    setIsOpen(false);
     if (window.location.pathname != "/") {
       navigate("/");
       await new Promise((r) => setTimeout(r, 1));
-      Scroll.scroller.scrollTo("About", {
+      Scroll.scroller.scrollTo(element, {
         duration: 1000,
         smooth: true,
       });
     } else {
-      Scroll.scroller.scrollTo("About", {
+      Scroll.scroller.scrollTo(element, {
         duration: 1000,
         smooth: true,
       });
@@ -79,6 +80,8 @@ function Navbar(props) {
                 <Box
                   sx={{
                     width: 200,
+                    textAlign: "center",
+                    marginTop: "24px",
                   }}
                   role="presentation"
                   onKeyDown={toggleDrawer(false)}
@@ -89,6 +92,31 @@ function Navbar(props) {
                       blockchain={props.blockchain}
                       getData={props.getData}
                     />
+                  </List>
+                  <List>
+                    <Button
+                      onClick={toggleDrawer(false)}
+                      className={classes.navTextButton}
+                    >
+                      <Link
+                        to="/collection"
+                        className={classes.navTextLink}
+                        style={{ textDecoration: "none" }}
+                      >
+                        Collection
+                      </Link>
+                    </Button>
+                  </List>
+                  <List>
+                    <Button
+                      onClick={() => scrollTo("About")}
+                      className={classes.navTextButton}
+                    >
+                      About
+                    </Button>
+                  </List>
+                  <List>
+                    <Button className={classes.navTextButton}>Team</Button>
                   </List>
                 </Box>
               </Drawer>
@@ -104,7 +132,10 @@ function Navbar(props) {
                   Collection
                 </Link>
               </Button>
-              <Button onClick={aboutClick} className={classes.navTextButton}>
+              <Button
+                onClick={() => scrollTo("About")}
+                className={classes.navTextButton}
+              >
                 About
               </Button>
               <Button className={classes.navTextButton}>Team</Button>

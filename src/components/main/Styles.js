@@ -6,6 +6,7 @@ const tertiaryColor = "#B4846C";
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
+    marginTop: "-1px",
     backgroundColor: secondaryColor,
     height: "200vh", // remove
   },
@@ -73,6 +74,9 @@ const useStyles = makeStyles((theme) => ({
   gridRoot: {
     flexGrow: 1,
     marginTop: "48px",
+    [theme.breakpoints.down("sm")]: {
+      marginTop: "0px",
+    },
   },
   mintText: {
     textAlign: "center",
@@ -91,6 +95,9 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     color: primaryColor,
     fontSize: "5rem",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "4rem",
+    },
   },
   subTitle: {
     textAlign: "center",
@@ -126,6 +133,9 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "48px",
     fontSize: "3rem",
     color: primaryColor,
+    [theme.breakpoints.down("sm")]: {
+      marginTop: "12px",
+    },
   },
   accordianText: {
     textAlign: "center",
