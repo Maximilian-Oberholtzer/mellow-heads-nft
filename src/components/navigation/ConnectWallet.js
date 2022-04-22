@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "../../redux/blockchain/blockchainActions";
 import { Button } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core";
-import Popup from "./Popup";
-import useStyles from "./Styles";
+import Popup from "../utils/Popup";
+import useStyles from "../main/Styles";
 
 function ConnectWallet(props) {
   const { blockchain } = props;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Modal from "@material-ui/core/Modal";
-import useStyles from "./Styles";
+import useStyles from "../main/Styles";
 import { Typography } from "@material-ui/core";
 
 function getModalStyle() {

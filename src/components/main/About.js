@@ -11,7 +11,7 @@ function About() {
   const classes = useStyles();
 
   return (
-    <Scroll.Element name="About">
+    <Scroll.Element id="About" name="About">
       <center>
         <Typography variant="h3" className={classes.accordianTitle}>
           About

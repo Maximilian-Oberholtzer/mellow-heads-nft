@@ -41,6 +41,11 @@ const useStyles = makeStyles((theme) => ({
       color: tertiaryColor,
     },
   },
+  drawer: {
+    "& div.MuiPaper-root": {
+      backgroundColor: secondaryColor,
+    },
+  },
   //end navbar
   container: {
     padding: "20px",

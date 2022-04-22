@@ -12,7 +12,7 @@ import {
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import CircularProgress from "@mui/material/CircularProgress";
-import Popup from "./Popup";
+import Popup from "../utils/Popup";
 import useStyles from "./Styles";
 import NFTgif from "./NFTgif";
 

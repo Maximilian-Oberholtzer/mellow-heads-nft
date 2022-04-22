@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import Navbar from "./components/main/Navbar";
+import Navbar from "./components/navigation/Navbar";
 import Main from "./components/main/Main";
 import Collection from "./components/collection/Collection";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";

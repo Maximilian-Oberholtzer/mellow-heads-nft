@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import {
   Toolbar,
@@ -8,23 +8,47 @@ import {
   useTheme,
 } from "@material-ui/core";
 import ConnectWallet from "./ConnectWallet";
-import useStyles from "./Styles";
+import useStyles from "../main/Styles";
 import MenuIcon from "@mui/icons-material/Menu";
+import { Drawer, Box, List } from "@material-ui/core";
 import * as Scroll from "react-scroll";
-import { Link } from "react-router-dom";
-
-const aboutClick = () => {
-  Scroll.scroller.scrollTo("About", {
-    duration: 1000,
-    smooth: true,
-  });
-};
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 function Navbar(props) {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
   const classes = useStyles();
   //media query to make navbar collapse
   const theme = useTheme();
   const collapse = useMediaQuery(theme.breakpoints.down("sm"));
+
+  const aboutClick = async () => {
+    if (window.location.pathname != "/") {
+      navigate("/");
+      await new Promise((r) => setTimeout(r, 1));
+      Scroll.scroller.scrollTo("About", {
+        duration: 1000,
+        smooth: true,
+      });
+    } else {
+      Scroll.scroller.scrollTo("About", {
+        duration: 1000,
+        smooth: true,
+      });
+    }
+  };
+
+  const toggleDrawer = (isOpen) => (event) => {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+    setIsOpen(isOpen);
+  };
+
   return (
     <div className={classes.root}>
       <AppBar className={classes.navbar} position="static">
@@ -41,9 +65,34 @@ function Navbar(props) {
             </Button>
           </Typography>
           {collapse ? (
-            <Button>
-              <MenuIcon className={classes.iconButton} />
-            </Button>
+            <>
+              <Button onClick={toggleDrawer(true)}>
+                <MenuIcon className={classes.iconButton} />
+              </Button>
+              <Drawer
+                className={classes.drawer}
+                anchor={"right"}
+                variant="temporary"
+                open={isOpen}
+                onClose={toggleDrawer(false)}
+              >
+                <Box
+                  sx={{
+                    width: 200,
+                  }}
+                  role="presentation"
+                  onKeyDown={toggleDrawer(false)}
+                >
+                  <List>
+                    <ConnectWallet
+                      dispatch={props.dispatch}
+                      blockchain={props.blockchain}
+                      getData={props.getData}
+                    />
+                  </List>
+                </Box>
+              </Drawer>
+            </>
           ) : (
             <>
               <Button className={classes.navTextButton}>
