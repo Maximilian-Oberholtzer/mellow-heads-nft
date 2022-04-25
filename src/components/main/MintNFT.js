@@ -19,10 +19,10 @@ import NFTgif from "./NFTgif";
 function MintNFT(props) {
   const classes = useStyles();
   const [claimingNft, setClaimingNft] = useState(false);
-  const [feedback, setFeedback] = useState(`Click mint to mint your NFT.`);
   const [mintAmount, setMintAmount] = useState(1);
-  const [errorMsg, setErrorMsg] = useState("");
-  const [errorCount, setErrorCount] = useState(0);
+  const [popupType, setPopupType] = useState("");
+  const [popupMsg, setPopupMsg] = useState("");
+  const [popupCount, setPopupCount] = useState(0);
   const { blockchain } = props;
 
   function onClickClaimNFT(e) {
@@ -38,8 +38,9 @@ function MintNFT(props) {
       props.getData();
     } else {
       //Show error popup
-      setErrorMsg("Please connect your wallet before minting!");
-      setErrorCount(errorCount + 1);
+      setPopupType("Error");
+      setPopupMsg("Please connect your wallet before minting!");
+      setPopupCount(popupCount + 1);
     }
   }
 
@@ -51,7 +52,6 @@ function MintNFT(props) {
     const totalGasLimit = (gasLimit * mintAmount).toString();
     console.log("Cost: ", totalCostWei);
     console.log("Gas limit: ", totalGasLimit);
-    setFeedback(`Minting your ${props.config.NFT_NAME}...`);
     setClaimingNft(true);
     blockchain.smartContract.methods
       .mint(blockchain.account, mintAmount)
@@ -63,14 +63,19 @@ function MintNFT(props) {
       })
       .once("error", (err) => {
         console.log(err);
-        setFeedback("Sorry, something went wrong please try again later.");
+        //setFeedback("Sorry, something went wrong please try again later.");
+        setPopupType("Error");
+        setPopupMsg("Sorry, something went wrong please try again later.");
+        setPopupCount(popupCount + 1);
         setClaimingNft(false);
       })
       .then((receipt) => {
         console.log(receipt);
-        setFeedback(
-          `WOW, the ${props.config.NFT_NAME} is yours! go visit Opensea.io to view it.`
+        setPopupType("Success!");
+        setPopupMsg(
+          "Your Mellow Head(s) are minted! Go to the collection page or OpenSea to view them."
         );
+        setPopupCount(popupCount + 1);
         setClaimingNft(false);
         props.dispatch(fetchData(blockchain.account));
       });
@@ -145,7 +150,11 @@ function MintNFT(props) {
             )}
           </Button>
         </div>
-        <Popup errorMsg={errorMsg} errorCount={errorCount} />
+        <Popup
+          popupType={popupType}
+          popupMsg={popupMsg}
+          popupCount={popupCount}
+        />
       </Container>
     </>
   );

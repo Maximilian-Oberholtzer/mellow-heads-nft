@@ -50,7 +50,7 @@ function ConnectWallet(props) {
       >
         {accountDisplay}
       </Button>
-      <Popup errorMsg={blockchain.errorMsg} />
+      <Popup popupType={"Error"} popupMsg={blockchain.errorMsg} />
     </div>
   );
 }

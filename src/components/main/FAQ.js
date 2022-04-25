@@ -80,7 +80,7 @@ function FAQ() {
             </AccordionSummary>
             <AccordionDetails>
               <Typography className={classes.accordianText}>
-                Check out the collections page or the Mellow Heads OpenSea
+                Check out the collection page or the Mellow Heads OpenSea
                 marketplace to view your NFTs.
               </Typography>
             </AccordionDetails>

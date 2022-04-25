@@ -29,17 +29,17 @@ function Popup(props) {
 
   const body = (
     <div style={modalStyle} className={classes.popup}>
-      <Typography className={classes.popupTitle}>Error</Typography>
-      <Typography>{props.errorMsg}</Typography>
+      <Typography className={classes.popupTitle}>{props.popupType}</Typography>
+      <Typography>{props.popupMsg}</Typography>
     </div>
   );
 
   // Only show popup when an error message exists or a new one appears
   useEffect(() => {
-    if (props.errorMsg) {
+    if (props.popupMsg) {
       handleOpen();
     }
-  }, [props.errorMsg, props.errorCount]);
+  }, [props.popupType, props.popupMsg, props.popupCount]);
 
   return (
     <div>
