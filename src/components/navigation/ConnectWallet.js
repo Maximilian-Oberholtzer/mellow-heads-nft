@@ -12,6 +12,7 @@ function ConnectWallet(props) {
   // Concatenate account address if connected to Metamask
   useEffect(() => {
     if (blockchain.account) {
+      props.getData();
       const display =
         blockchain.account.length > 4
           ? `${blockchain.account.substring(

@@ -65,7 +65,7 @@ function MintNFT(props) {
         console.log(err);
         //setFeedback("Sorry, something went wrong please try again later.");
         setPopupType("Error");
-        setPopupMsg("Sorry, something went wrong please try again later.");
+        setPopupMsg("Something went wrong. Please try again later.");
         setPopupCount(popupCount + 1);
         setClaimingNft(false);
       })

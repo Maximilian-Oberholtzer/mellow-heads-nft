@@ -115,7 +115,7 @@ function FAQ() {
             <AccordionDetails>
               <Typography className={classes.accordianText}>
                 Each Mellow Head is stored as an ERC-721 token on the Polygon
-                blockchain and the metadata is stored on IPFS.
+                blockchain and the metadata is hosted on IPFS.
               </Typography>
             </AccordionDetails>
           </Accordion>

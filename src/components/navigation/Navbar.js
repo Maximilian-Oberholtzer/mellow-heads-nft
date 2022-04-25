@@ -50,6 +50,89 @@ function Navbar(props) {
     setIsOpen(isOpen);
   };
 
+  //only shows when screen width is small
+  const drawer = (
+    <>
+      <Button onClick={toggleDrawer(true)}>
+        <MenuIcon className={classes.iconButton} />
+      </Button>
+      <Drawer
+        className={classes.drawer}
+        anchor={"right"}
+        variant="temporary"
+        open={isOpen}
+        onClose={toggleDrawer(false)}
+      >
+        <Box
+          sx={{
+            width: 200,
+            textAlign: "center",
+            marginTop: "24px",
+          }}
+          role="presentation"
+          onKeyDown={toggleDrawer(false)}
+        >
+          <List>
+            <ConnectWallet
+              dispatch={props.dispatch}
+              blockchain={props.blockchain}
+              getData={props.getData}
+            />
+          </List>
+          <List>
+            <Button
+              onClick={toggleDrawer(false)}
+              className={classes.navTextButton}
+            >
+              <Link
+                to="/collection"
+                className={classes.navTextLink}
+                style={{ textDecoration: "none" }}
+              >
+                Collection
+              </Link>
+            </Button>
+          </List>
+          <List>
+            <Button
+              onClick={() => scrollTo("FAQ")}
+              className={classes.navTextButton}
+            >
+              FAQ
+            </Button>
+          </List>
+          <List>
+            <Button className={classes.navTextButton}>Team</Button>
+          </List>
+        </Box>
+      </Drawer>
+    </>
+  );
+
+  //shows when screen width is large
+  const navbar = (
+    <>
+      <Button className={classes.navTextButton}>
+        <Link
+          to="/collection"
+          className={classes.navTextLink}
+          style={{ textDecoration: "none" }}
+        >
+          Collection
+        </Link>
+      </Button>
+      <Button onClick={() => scrollTo("FAQ")} className={classes.navTextButton}>
+        FAQ
+      </Button>
+      <Button className={classes.navTextButton}>Team</Button>
+      <ConnectWallet
+        dispatch={props.dispatch}
+        blockchain={props.blockchain}
+        getData={props.getData}
+      />
+    </>
+  );
+
   return (
     <div className={classes.root}>
       <AppBar className={classes.navbar} position="static">
@@ -65,87 +148,7 @@ function Navbar(props) {
               </Link>
             </Button>
           </Typography>
-          {collapse ? (
-            <>
-              <Button onClick={toggleDrawer(true)}>
-                <MenuIcon className={classes.iconButton} />
-              </Button>
-              <Drawer
-                className={classes.drawer}
-                anchor={"right"}
-                variant="temporary"
-                open={isOpen}
-                onClose={toggleDrawer(false)}
-              >
-                <Box
-                  sx={{
-                    width: 200,
-                    textAlign: "center",
-                    marginTop: "24px",
-                  }}
-                  role="presentation"
-                  onKeyDown={toggleDrawer(false)}
-                >
-                  <List>
-                    <ConnectWallet
-                      dispatch={props.dispatch}
-                      blockchain={props.blockchain}
-                      getData={props.getData}
-                    />
-                  </List>
-                  <List>
-                    <Button
-                      onClick={toggleDrawer(false)}
-                      className={classes.navTextButton}
-                    >
-                      <Link
-                        to="/collection"
-                        className={classes.navTextLink}
-                        style={{ textDecoration: "none" }}
-                      >
-                        Collection
-                      </Link>
-                    </Button>
-                  </List>
-                  <List>
-                    <Button
-                      onClick={() => scrollTo("FAQ")}
-                      className={classes.navTextButton}
-                    >
-                      FAQ
-                    </Button>
-                  </List>
-                  <List>
-                    <Button className={classes.navTextButton}>Team</Button>
-                  </List>
-                </Box>
-              </Drawer>
-            </>
-          ) : (
-            <>
-              <Button className={classes.navTextButton}>
-                <Link
-                  to="/collection"
-                  className={classes.navTextLink}
-                  style={{ textDecoration: "none" }}
-                >
-                  Collection
-                </Link>
-              </Button>
-              <Button
-                onClick={() => scrollTo("FAQ")}
-                className={classes.navTextButton}
-              >
-                FAQ
-              </Button>
-              <Button className={classes.navTextButton}>Team</Button>
-              <ConnectWallet
-                dispatch={props.dispatch}
-                blockchain={props.blockchain}
-                getData={props.getData}
-              />
-            </>
-          )}
+          {collapse ? drawer : navbar}
         </Toolbar>
       </AppBar>
     </div>
