@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "../../redux/blockchain/blockchainActions";
 import { Button } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core";
-import Popup from "./Popup";
-import useStyles from "./Styles";
+import Popup from "../utils/Popup";
+import useStyles from "../main/Styles";
 
 function ConnectWallet(props) {
-  const { blockchain } = props;
+  const { blockchain, getData } = props;
   const classes = useStyles();
   const [accountDisplay, setAccountDisplay] = useState("Connect");
 
   // Concatenate account address if connected to Metamask
   useEffect(() => {
     if (blockchain.account) {
+      getData();
       const display =
         blockchain.account.length > 4
           ? `${blockchain.account.substring(
@@ -51,7 +51,7 @@ function ConnectWallet(props) {
       >
         {accountDisplay}
       </Button>
-      <Popup errorMsg={blockchain.errorMsg} />
+      <Popup popupType={"Error"} popupMsg={blockchain.errorMsg} />
     </div>
   );
 }

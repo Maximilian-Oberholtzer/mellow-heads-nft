@@ -6,8 +6,8 @@ const tertiaryColor = "#B4846C";
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
+    marginTop: "-1px",
     backgroundColor: secondaryColor,
-    height: "200vh", // remove
   },
   //navbar
   root: {
@@ -41,6 +41,11 @@ const useStyles = makeStyles((theme) => ({
       color: tertiaryColor,
     },
   },
+  drawer: {
+    "& div.MuiPaper-root": {
+      backgroundColor: secondaryColor,
+    },
+  },
   //end navbar
   container: {
     padding: "20px",
@@ -68,6 +73,9 @@ const useStyles = makeStyles((theme) => ({
   gridRoot: {
     flexGrow: 1,
     marginTop: "48px",
+    [theme.breakpoints.down("sm")]: {
+      marginTop: "0px",
+    },
   },
   mintText: {
     textAlign: "center",
@@ -86,6 +94,9 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     color: primaryColor,
     fontSize: "5rem",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "4rem",
+    },
   },
   subTitle: {
     textAlign: "center",
@@ -121,12 +132,31 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "48px",
     fontSize: "3rem",
     color: primaryColor,
+    [theme.breakpoints.down("sm")]: {
+      marginTop: "12px",
+    },
   },
   accordianText: {
     textAlign: "center",
     color: primaryColor,
   },
   //end accordian
+  //footer
+  footerTitle: {
+    marginTop: "48px",
+    fontSize: "3rem",
+    color: primaryColor,
+    [theme.breakpoints.down("sm")]: {
+      marginTop: "12px",
+    },
+  },
+  footer: {
+    maxWidth: "100%",
+    textAlign: "center",
+    backgroundColor: primaryColor,
+    minHeight: "30vh",
+    marginTop: "48px",
+  },
 }));
 
 export default useStyles;
