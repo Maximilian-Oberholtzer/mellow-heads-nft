@@ -3,6 +3,7 @@ import MintNFT from "./MintNFT";
 import Welcome from "./Welcome";
 import useStyles from "./Styles";
 import FAQ from "./FAQ";
+import Footer from "./Footer";
 
 function Main(props) {
   const classes = useStyles();
@@ -18,6 +19,7 @@ function Main(props) {
         data={props.data}
       />
       <FAQ />
+      <Footer />
     </div>
   );
 }

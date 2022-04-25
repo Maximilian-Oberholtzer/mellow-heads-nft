@@ -8,7 +8,6 @@ const useStyles = makeStyles((theme) => ({
   mainContainer: {
     marginTop: "-1px",
     backgroundColor: secondaryColor,
-    height: "200vh", // remove
   },
   //navbar
   root: {
@@ -142,6 +141,22 @@ const useStyles = makeStyles((theme) => ({
     color: primaryColor,
   },
   //end accordian
+  //footer
+  footerTitle: {
+    marginTop: "48px",
+    fontSize: "3rem",
+    color: primaryColor,
+    [theme.breakpoints.down("sm")]: {
+      marginTop: "12px",
+    },
+  },
+  footer: {
+    maxWidth: "100%",
+    textAlign: "center",
+    backgroundColor: primaryColor,
+    minHeight: "30vh",
+    marginTop: "48px",
+  },
 }));
 
 export default useStyles;
