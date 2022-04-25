@@ -2,7 +2,7 @@ import React from "react";
 import MintNFT from "./MintNFT";
 import Welcome from "./Welcome";
 import useStyles from "./Styles";
-import About from "./About";
+import FAQ from "./FAQ";
 
 function Main(props) {
   const classes = useStyles();
@@ -17,7 +17,7 @@ function Main(props) {
         getData={props.getData}
         data={props.data}
       />
-      <About />
+      <FAQ />
     </div>
   );
 }

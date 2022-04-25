@@ -25,7 +25,7 @@ function Navbar(props) {
   // close drawer if open and scroll to selected element
   const scrollTo = async (element) => {
     setIsOpen(false);
-    if (window.location.pathname != "/") {
+    if (window.location.pathname !== "/") {
       navigate("/");
       await new Promise((r) => setTimeout(r, 1));
       Scroll.scroller.scrollTo(element, {
@@ -109,10 +109,10 @@ function Navbar(props) {
                   </List>
                   <List>
                     <Button
-                      onClick={() => scrollTo("About")}
+                      onClick={() => scrollTo("FAQ")}
                       className={classes.navTextButton}
                     >
-                      About
+                      FAQ
                     </Button>
                   </List>
                   <List>
@@ -133,10 +133,10 @@ function Navbar(props) {
                 </Link>
               </Button>
               <Button
-                onClick={() => scrollTo("About")}
+                onClick={() => scrollTo("FAQ")}
                 className={classes.navTextButton}
               >
-                About
+                FAQ
               </Button>
               <Button className={classes.navTextButton}>Team</Button>
               <ConnectWallet

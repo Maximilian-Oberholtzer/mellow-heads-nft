@@ -7,14 +7,14 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import useStyles from "./Styles";
 import * as Scroll from "react-scroll";
 
-function About() {
+function FAQ() {
   const classes = useStyles();
 
   return (
-    <Scroll.Element id="About" name="About">
+    <Scroll.Element id="FAQ" name="FAQ">
       <center>
         <Typography variant="h3" className={classes.accordianTitle}>
-          About
+          F.A.Q.
         </Typography>
         <div className={classes.accordianRoot}>
           <Accordion className={classes.accordian}>
@@ -24,14 +24,21 @@ function About() {
               id="panel1a-header"
             >
               <Typography className={classes.accordianText}>
-                Accordion 1
+                How can I connect to the Matic (Polygon) network on Metamask?
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
               <Typography className={classes.accordianText}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                eget.
+                You must add the Polygon Mainnet manually as a Custom RPC. Check
+                out Polygon's documentation on how to connect for more
+                assistance.{"  "}
+                <a
+                  href="https://docs.polygon.technology/docs/develop/metamask/config-polygon-on-metamask/"
+                  style={{ textDecoration: "none" }}
+                  className={classes.navTextLink}
+                >
+                  {">"}Polygon Docs{"<"}
+                </a>
               </Typography>
             </AccordionDetails>
           </Accordion>
@@ -42,14 +49,22 @@ function About() {
               id="panel2a-header"
             >
               <Typography className={classes.accordianText}>
-                Accordion 2
+                How can I get Matic tokens after connecting to the Polygon
+                network?
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
               <Typography className={classes.accordianText}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                eget.
+                You must transfer Matic and Ethereum to your Metamask address on
+                the Ethereum Mainnet and use the Polygon Bridge to convert your
+                Matic to the Polygon Network.{"  "}
+                <a
+                  href="https://wallet.polygon.technology/"
+                  style={{ textDecoration: "none" }}
+                  className={classes.navTextLink}
+                >
+                  {">"}Polygon Bridge{"<"}
+                </a>
               </Typography>
             </AccordionDetails>
           </Accordion>
@@ -60,14 +75,13 @@ function About() {
               id="panel2a-header"
             >
               <Typography className={classes.accordianText}>
-                Accordion 3
+                I just minted a Mellow Head NFT. Where can I view it?
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
               <Typography className={classes.accordianText}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                eget.
+                Check out the collections page or the Mellow Heads OpenSea
+                marketplace to view your NFTs.
               </Typography>
             </AccordionDetails>
           </Accordion>
@@ -78,14 +92,13 @@ function About() {
               id="panel2a-header"
             >
               <Typography className={classes.accordianText}>
-                Accordion 4
+                How do I buy, sell or send my Mellow Heads?
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
               <Typography className={classes.accordianText}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                eget.
+                Go to the OpenSea Marketplace and you will have the ability to
+                do all the above actions with your Mellow Heads.
               </Typography>
             </AccordionDetails>
           </Accordion>
@@ -96,14 +109,13 @@ function About() {
               id="panel2a-header"
             >
               <Typography className={classes.accordianText}>
-                Accordion 5
+                How do I know my Mellow Heads will be safe and secure?
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
               <Typography className={classes.accordianText}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                eget.
+                Each Mellow Head is stored as an ERC-721 token on the Polygon
+                blockchain and the metadata is stored on IPFS.
               </Typography>
             </AccordionDetails>
           </Accordion>
@@ -113,4 +125,4 @@ function About() {
   );
 }
 
-export default About;
+export default FAQ;
