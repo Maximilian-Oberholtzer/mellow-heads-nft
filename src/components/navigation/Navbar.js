@@ -10,6 +10,7 @@ import {
 import ConnectWallet from "./ConnectWallet";
 import useStyles from "../main/Styles";
 import MenuIcon from "@mui/icons-material/Menu";
+import mellowHeadsLogo from "../../media/mellowHeadsLogo.png";
 import { Drawer, Box, List } from "@material-ui/core";
 import * as Scroll from "react-scroll";
 import { Link, useNavigate } from "react-router-dom";

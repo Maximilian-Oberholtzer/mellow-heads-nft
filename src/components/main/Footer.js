@@ -18,7 +18,7 @@ function Footer() {
           <Typography className={classes.footerTitle} variant="h2">
             Powered By {"  "}
           </Typography>
-          <img alt="" src={polygonLogo} />
+          <img alt="" src={polygonLogo} style={{ paddingBottom: "3rem" }} />
         </Container>
       </center>
       <Container className={classes.footer}>
