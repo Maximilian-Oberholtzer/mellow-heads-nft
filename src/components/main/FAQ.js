@@ -27,7 +27,7 @@ function FAQ() {
                 How can I connect to the Matic (Polygon) network on Metamask?
               </Typography>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails className={classes.accordianDetails}>
               <Typography className={classes.accordianText}>
                 You must add the Polygon Mainnet manually as a Custom RPC. Check
                 out Polygon's documentation on how to connect for more
@@ -53,7 +53,7 @@ function FAQ() {
                 network?
               </Typography>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails className={classes.accordianDetails}>
               <Typography className={classes.accordianText}>
                 You must transfer Matic and Ethereum to your Metamask address on
                 the Ethereum Mainnet and use the Polygon Bridge to convert your
@@ -78,7 +78,7 @@ function FAQ() {
                 I just minted a Mellow Head NFT. Where can I view it?
               </Typography>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails className={classes.accordianDetails}>
               <Typography className={classes.accordianText}>
                 Check out the collection page or the Mellow Heads OpenSea
                 marketplace to view your NFTs.
@@ -95,7 +95,7 @@ function FAQ() {
                 How do I buy, sell or send my Mellow Heads?
               </Typography>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails className={classes.accordianDetails}>
               <Typography className={classes.accordianText}>
                 Go to the OpenSea Marketplace and you will have the ability to
                 do all the above actions with your Mellow Heads.
@@ -112,7 +112,7 @@ function FAQ() {
                 How do I know my Mellow Heads will be safe and secure?
               </Typography>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails className={classes.accordianDetails}>
               <Typography className={classes.accordianText}>
                 Each Mellow Head is stored as an ERC-721 token on the Polygon
                 blockchain and the metadata is hosted on IPFS.

@@ -145,6 +145,9 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "3rem",
     color: primaryColor,
   },
+  accordianDetails: {
+    borderTop: "2px solid " + secondaryColor,
+  },
   accordianText: {
     textAlign: "center",
     color: primaryColor,
