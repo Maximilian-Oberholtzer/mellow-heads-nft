@@ -41,6 +41,14 @@ function Navbar(props) {
     }
   };
 
+  const openMarketplace = () => {
+    window.open(props.config.MARKETPLACE_LINK);
+  };
+
+  const openSmartContract = () => {
+    window.open(props.config.SCAN_LINK);
+  };
+
   const toggleDrawer = (isOpen) => (event) => {
     if (
       event.type === "keydown" &&
@@ -105,6 +113,14 @@ function Navbar(props) {
           <List>
             <Button className={classes.navTextButton}>Team</Button>
           </List>
+          <List>
+            <Button onClick={openMarketplace} className={classes.navTextButton}>
+              OpenSea
+            </Button>
+          </List>
+          <Button onClick={openSmartContract} className={classes.navTextButton}>
+            Contract
+          </Button>
         </Box>
       </Drawer>
     </>
@@ -126,6 +142,12 @@ function Navbar(props) {
         FAQ
       </Button>
       <Button className={classes.navTextButton}>Team</Button>
+      <Button onClick={openMarketplace} className={classes.navTextButton}>
+        OpenSea
+      </Button>
+      <Button onClick={openSmartContract} className={classes.navTextButton}>
+        Contract
+      </Button>
       <ConnectWallet
         dispatch={props.dispatch}
         blockchain={props.blockchain}

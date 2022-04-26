@@ -68,12 +68,25 @@ const useStyles = makeStyles((theme) => ({
   //mint container
   mintContainer: {
     //marginTop: "24px",
-    padding: "2rem",
+    boxShadow:
+      "0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%)",
+    backgroundColor: "#ffecd8",
+    padding: "1rem",
+    borderRadius: "12px",
+    maxWidth: "450px",
   },
   gridRoot: {
     flexGrow: 1,
     //marginTop: "48px",
     padding: "2rem 2rem 4rem 2rem",
+  },
+  mintTitle: {
+    textAlign: "center",
+    color: primaryColor,
+    marginBottom: "1rem",
+    [theme.breakpoints.down("sm")]: {
+      paddingTop: "3rem",
+    },
   },
   mintText: {
     textAlign: "center",
@@ -100,7 +113,6 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     color: primaryColor,
     fontSize: "1.5rem",
-    //marginTop: "16px",
     padding: "1rem",
   },
   //end welcome
