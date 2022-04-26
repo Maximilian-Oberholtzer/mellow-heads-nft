@@ -100,11 +100,7 @@ function MintNFT(props) {
   //Used when minting is still active
   const mintDisplay = (
     <>
-      <Container
-        className={classes.mintContainer}
-        style={{ paddingTop: "0" }}
-        maxWidth="sm"
-      >
+      <Container className={classes.mintContainer} maxWidth="sm">
         <Typography variant="h3" className={classes.mintText}>
           Mint
         </Typography>

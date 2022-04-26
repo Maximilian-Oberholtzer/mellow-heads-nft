@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     color: primaryColor,
   },
   navTextButton: {
-    marginRight: "12px",
+    marginRight: "1rem",
     color: primaryColor,
     fontSize: "1rem",
     "&:hover": {
@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
   },
   //end navbar
   container: {
-    padding: "20px",
+    padding: "2rem",
   },
   button: {
     backgroundColor: primaryColor,
@@ -67,15 +67,13 @@ const useStyles = makeStyles((theme) => ({
   },
   //mint container
   mintContainer: {
-    marginTop: "24px",
-    padding: "20px",
+    //marginTop: "24px",
+    padding: "2rem",
   },
   gridRoot: {
     flexGrow: 1,
-    marginTop: "48px",
-    [theme.breakpoints.down("sm")]: {
-      marginTop: "0px",
-    },
+    //marginTop: "48px",
+    padding: "2rem 2rem 4rem 2rem",
   },
   mintText: {
     textAlign: "center",
@@ -102,7 +100,8 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     color: primaryColor,
     fontSize: "1.5rem",
-    marginTop: "16px",
+    //marginTop: "16px",
+    padding: "1rem",
   },
   //end welcome
   //popup
@@ -126,15 +125,13 @@ const useStyles = makeStyles((theme) => ({
   },
   accordianRoot: {
     width: "66%",
-    marginTop: "24px",
+    //marginTop: "24px",
+    padding: "3rem",
+    paddingTop: "1rem",
   },
   accordianTitle: {
-    marginTop: "48px",
     fontSize: "3rem",
     color: primaryColor,
-    [theme.breakpoints.down("sm")]: {
-      marginTop: "12px",
-    },
   },
   accordianText: {
     textAlign: "center",
@@ -143,19 +140,20 @@ const useStyles = makeStyles((theme) => ({
   //end accordian
   //footer
   footerTitle: {
-    marginTop: "48px",
+    paddingBottom: "0",
     fontSize: "3rem",
     color: primaryColor,
-    [theme.breakpoints.down("sm")]: {
-      marginTop: "12px",
-    },
   },
   footer: {
+    padding: "3rem",
     maxWidth: "100%",
     textAlign: "center",
     backgroundColor: primaryColor,
-    minHeight: "30vh",
-    marginTop: "48px",
+    padding: "2rem",
+  },
+  footerText: {
+    fontSize: "2rem",
+    color: secondaryColor,
   },
 }));
 
