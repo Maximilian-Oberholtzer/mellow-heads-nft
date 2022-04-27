@@ -74,6 +74,10 @@ const useStyles = makeStyles((theme) => ({
     padding: "1rem",
     borderRadius: "12px",
     maxWidth: "450px",
+    marginBottom: "2rem",
+    [theme.breakpoints.down("sm")]: {
+      marginBottom: "0",
+    },
   },
   gridRoot: {
     flexGrow: 1,

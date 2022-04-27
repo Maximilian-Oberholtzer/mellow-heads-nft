@@ -29,10 +29,32 @@ const useStyles = makeStyles((theme) => ({
     padding: "1rem",
   },
   //end welcome
+  //grid container
   gridContainer: {
     maxWidth: "80%",
     margin: "auto",
     flexGrow: "1",
+  },
+  gridCard: {
+    margin: "auto",
+    backgroundColor: secondaryColor,
+    boxShadow: "none",
+  },
+  cardText: {
+    fontSize: "2rem",
+    marginBottom: "2rem",
+    color: primaryColor,
+    textAlign: "center",
+    marginRight: "1.6rem",
+  },
+  loadingText: {
+    fontSize: "3rem",
+    color: primaryColor,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    textAlign: "center",
+    minHeight: "40vh",
   },
 }));
 
