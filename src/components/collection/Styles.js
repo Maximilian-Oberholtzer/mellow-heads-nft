@@ -28,6 +28,12 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "1.5rem",
     padding: "1rem",
   },
+  //end welcome
+  gridContainer: {
+    maxWidth: "80%",
+    margin: "auto",
+    flexGrow: "1",
+  },
 }));
 
 export default useStyles;
