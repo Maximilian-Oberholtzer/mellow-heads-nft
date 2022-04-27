@@ -5,14 +5,6 @@ import useStyles from "./Styles";
 function Welcome(props) {
   const classes = useStyles();
 
-  const openMarketplace = () => {
-    window.open(props.config.MARKETPLACE_LINK);
-  };
-
-  const openSmartContract = () => {
-    window.open(props.config.SCAN_LINK);
-  };
-
   return (
     <div>
       <Container className={classes.container}>
@@ -22,15 +14,6 @@ function Welcome(props) {
         <Typography className={classes.subTitle}>
           Mellow Heads NFT is a collection of 5,000 algorithmically generated
           marshmallow characters living on the Polygon Blockchain.
-        </Typography>
-        <Typography className={classes.subTitle}>
-          <Button onClick={openMarketplace} className={classes.textButton}>
-            <u>OpenSea Marketplace</u>
-          </Button>
-          |
-          <Button onClick={openSmartContract} className={classes.textButton}>
-            <u>Smart Contract Address</u>
-          </Button>
         </Typography>
       </Container>
     </div>

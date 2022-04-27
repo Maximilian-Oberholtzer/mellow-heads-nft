@@ -21,7 +21,12 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Router>
-        <Navbar dispatch={dispatch} blockchain={blockchain} getData={getData} />
+        <Navbar
+          dispatch={dispatch}
+          blockchain={blockchain}
+          getData={getData}
+          config={config}
+        />
         <Routes>
           <Route
             exact
@@ -36,7 +41,17 @@ function App() {
               />
             }
           />
-          <Route exact path="/collection" element={<Collection />} />
+          <Route
+            exact
+            path="/collection"
+            element={
+              <Collection
+                blockchain={blockchain}
+                getData={getData}
+                data={data}
+              />
+            }
+          />
         </Routes>
       </Router>
     </ThemeProvider>
