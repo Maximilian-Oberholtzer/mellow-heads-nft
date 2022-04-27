@@ -76,7 +76,7 @@ function CollectionGrid(props) {
                       <img
                         alt=""
                         src={`https://mellowheads.mypinata.cloud/ipfs/QmSBTxx73oxXYHZoQUgpQwpYQN5kb34mhChtEwy2gTW2pu/${token.edition}.png`}
-                        style={{ width: "256px" }}
+                        style={{ width: "256px", borderRadius: "6px" }}
                       />
                     </center>
                   </Grid>

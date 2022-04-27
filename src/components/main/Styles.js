@@ -72,7 +72,7 @@ const useStyles = makeStyles((theme) => ({
       "0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%)",
     backgroundColor: "#ffecd8",
     padding: "1rem",
-    borderRadius: "12px",
+    borderRadius: "6px",
     maxWidth: "450px",
     marginBottom: "2rem",
     [theme.breakpoints.down("sm")]: {
@@ -162,6 +162,9 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: "0",
     fontSize: "3rem",
     color: primaryColor,
+    [theme.breakpoints.down("sm")]: {
+      paddingBottom: "2rem",
+    },
   },
   footer: {
     padding: "3rem",
@@ -173,6 +176,15 @@ const useStyles = makeStyles((theme) => ({
   footerText: {
     fontSize: "2rem",
     color: secondaryColor,
+  },
+  footerGrid: {
+    maxWidth: "80%",
+  },
+  gridImg: {
+    [theme.breakpoints.down("sm")]: {
+      paddingBottom: "1rem !important",
+      marginTop: "0 !important",
+    },
   },
 }));
 
