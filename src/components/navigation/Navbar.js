@@ -86,6 +86,7 @@ function Navbar(props) {
               dispatch={props.dispatch}
               blockchain={props.blockchain}
               getData={props.getData}
+              data={props.data}
             />
           </List>
           <List>
@@ -152,6 +153,7 @@ function Navbar(props) {
         dispatch={props.dispatch}
         blockchain={props.blockchain}
         getData={props.getData}
+        data={props.data}
       />
     </>
   );
