@@ -23,7 +23,7 @@ function CollectionGrid(props) {
     for (let i = 0; i < data.ownerTokens.length; i++) {
       //Create ipfs link from tokenURI
       const tokenURL =
-        "https://ipfs.io/ipfs/QmUFEJ7uKGkTfMMa1wNqPWjdBCa2n23zx78dbWFkFcLxX8/" +
+        "https://mellowheads.mypinata.cloud/ipfs/QmUFEJ7uKGkTfMMa1wNqPWjdBCa2n23zx78dbWFkFcLxX8/" +
         data.ownerTokens[i] +
         ".json";
 
@@ -52,11 +52,18 @@ function CollectionGrid(props) {
       <div>
         <Grid container spacing={0} className={classes.gridContainer}>
           {tokenData.map((token, index) => (
-            <Grid item xs={12} sm={6} md={3} key={token.name}>
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              md={3}
+              key={token.name}
+              style={{ marginBottom: "24px" }}
+            >
               <center>
                 <img
                   alt=""
-                  src={`https://ipfs.io/ipfs/QmSBTxx73oxXYHZoQUgpQwpYQN5kb34mhChtEwy2gTW2pu/${token.edition}.png`}
+                  src={`https://mellowheads.mypinata.cloud/ipfs/QmSBTxx73oxXYHZoQUgpQwpYQN5kb34mhChtEwy2gTW2pu/${token.edition}.png`}
                   style={{ width: "256px" }}
                 />
               </center>
