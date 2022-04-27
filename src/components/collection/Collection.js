@@ -16,12 +16,10 @@ function Collection(props) {
   const listenScroll = () => {
     if (window.pageYOffset < 300) {
       if (!scrollTopView) {
-        console.log("< 300");
         setScrollTopView(false);
       }
     } else {
       if (!scrollTopView) {
-        console.log("> 300");
         setScrollTopView(true);
       }
     }
