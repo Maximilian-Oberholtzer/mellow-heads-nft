@@ -13,6 +13,31 @@ const useStyles = makeStyles((theme) => ({
   container: {
     padding: "2rem",
   },
+  //scrollTop
+  scrollTopVisible: {
+    borderRadius: "50%",
+    height: "50px",
+    width: "50px",
+    backgroundColor: primaryColor,
+    right: "3rem",
+    bottom: "4rem",
+    opacity: "1",
+    transition: "transform .4s ease, opacity .4s ease, 0.3s",
+    position: "fixed",
+  },
+  scrollTopHidden: {
+    borderRadius: "50%",
+    height: "50px",
+    width: "50px",
+    backgroundColor: primaryColor,
+    right: "3rem",
+    bottom: "4rem",
+    opacity: "0",
+    transition: "transform .4s ease, opacity .4s ease, 0.3s",
+    pointerEvents: "none",
+    position: "fixed",
+  },
+  //end scrollTop
   //welcome
   title: {
     textAlign: "center",
