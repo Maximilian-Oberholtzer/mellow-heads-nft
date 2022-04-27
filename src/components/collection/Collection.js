@@ -39,7 +39,7 @@ function Collection(props) {
           scrollTopView ? classes.scrollTopVisible : classes.scrollTopHidden
         }
       >
-        UP
+        TOP
       </Button>
       <Welcome blockchain={props.blockchain} data={props.data} />
       <CollectionGrid blockchain={props.blockchain} data={props.data} />

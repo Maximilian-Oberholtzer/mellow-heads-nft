@@ -50,8 +50,6 @@ function MintNFT(props) {
     const gasLimit = props.config.GAS_LIMIT;
     const totalCostWei = (cost * mintAmount).toString();
     const totalGasLimit = (gasLimit * mintAmount).toString();
-    console.log("Cost: ", totalCostWei);
-    console.log("Gas limit: ", totalGasLimit);
     setClaimingNft(true);
     blockchain.smartContract.methods
       .mint(blockchain.account, mintAmount)

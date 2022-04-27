@@ -54,7 +54,6 @@ function CollectionGrid(props) {
 
   useEffect(() => {
     if (blockchain && data.ownerTokens.length > 0) {
-      console.log(blockchain, data);
       setHasNfts(true);
       fetchTokenURI();
     } else {
@@ -62,7 +61,6 @@ function CollectionGrid(props) {
     }
   }, [data.ownerTokens]);
 
-  console.log(tokenData);
   return (
     <MuiThemeProvider theme={theme}>
       {hasNfts ? (
