@@ -18,7 +18,7 @@ function Footer() {
   const collapse = useMediaQuery(theme.breakpoints.down("sm"));
 
   const openTwitter = () => {
-    window.open("https://twitter.com");
+    window.open("https://twitter.com/MellowHeads_NFT");
   };
 
   return (
