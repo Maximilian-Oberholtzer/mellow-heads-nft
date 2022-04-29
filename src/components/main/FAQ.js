@@ -119,6 +119,24 @@ function FAQ() {
               </Typography>
             </AccordionDetails>
           </Accordion>
+          <Accordion className={classes.accordian}>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel2a-content"
+              id="panel2a-header"
+            >
+              <Typography className={classes.accordianText}>
+                Is there a roadmap for Mellow Heads NFT?
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails className={classes.accordianDetails}>
+              <Typography className={classes.accordianText}>
+                There is no established roadmap or additional promises that will
+                be made. If you enjoy the artwork and want to join the Mellow
+                Heads community for a low cost then I welcome you to!
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
         </div>
       </center>
     </Scroll.Element>

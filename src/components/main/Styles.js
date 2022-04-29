@@ -91,8 +91,10 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     color: primaryColor,
     marginBottom: "1rem",
+    fontSize: "3rem",
     [theme.breakpoints.down("sm")]: {
       paddingTop: "3rem",
+      fontSize: "2.5rem",
     },
   },
   mintText: {
@@ -151,6 +153,9 @@ const useStyles = makeStyles((theme) => ({
   accordianTitle: {
     fontSize: "3rem",
     color: primaryColor,
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "2.5rem",
+    },
   },
   accordianDetails: {
     borderTop: "2px solid " + secondaryColor,
@@ -165,8 +170,10 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     color: primaryColor,
     marginBottom: "1rem",
+    fontSize: "3rem",
     [theme.breakpoints.down("sm")]: {
       paddingTop: "3rem",
+      fontSize: "2.5rem",
     },
   },
   //end creator details
@@ -177,6 +184,7 @@ const useStyles = makeStyles((theme) => ({
     color: primaryColor,
     [theme.breakpoints.down("sm")]: {
       paddingBottom: "2rem",
+      fontSize: "2.5rem",
     },
   },
   footer: {

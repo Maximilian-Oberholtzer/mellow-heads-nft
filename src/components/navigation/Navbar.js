@@ -112,7 +112,12 @@ function Navbar(props) {
             </Button>
           </List>
           <List>
-            <Button className={classes.navTextButton}>Team</Button>
+            <Button
+              onClick={() => scrollTo("CreatorDetails")}
+              className={classes.navTextButton}
+            >
+              Creator
+            </Button>
           </List>
           <List>
             <Button onClick={openMarketplace} className={classes.navTextButton}>
@@ -142,7 +147,12 @@ function Navbar(props) {
       <Button onClick={() => scrollTo("FAQ")} className={classes.navTextButton}>
         FAQ
       </Button>
-      <Button className={classes.navTextButton}>Team</Button>
+      <Button
+        onClick={() => scrollTo("CreatorDetails")}
+        className={classes.navTextButton}
+      >
+        Creator
+      </Button>
       <Button onClick={openMarketplace} className={classes.navTextButton}>
         OpenSea
       </Button>
