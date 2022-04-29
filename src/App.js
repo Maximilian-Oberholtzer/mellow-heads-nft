@@ -26,6 +26,7 @@ function App() {
           blockchain={blockchain}
           getData={getData}
           config={config}
+          data={data}
         />
         <Routes>
           <Route

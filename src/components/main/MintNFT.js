@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { fetchData } from "../../redux/data/dataActions";
 import {
   Button,
@@ -18,12 +18,22 @@ import NFTgif from "./NFTgif";
 
 function MintNFT(props) {
   const classes = useStyles();
+  const [mintingCompleted, setMintingCompleted] = useState(false);
   const [claimingNft, setClaimingNft] = useState(false);
   const [mintAmount, setMintAmount] = useState(1);
   const [popupType, setPopupType] = useState("");
   const [popupMsg, setPopupMsg] = useState("");
   const [popupCount, setPopupCount] = useState(0);
-  const { blockchain } = props;
+  const { blockchain, data, config } = props;
+
+  useEffect(() => {
+    if (data.totalSupply >= config.MAX_SUPPLY) {
+      setMintingCompleted(true);
+    }
+    if (!blockchain.account) {
+      setMintAmount(1);
+    }
+  }, [blockchain, data]);
 
   function onClickClaimNFT(e) {
     e.preventDefault();
@@ -31,7 +41,7 @@ function MintNFT(props) {
       blockchain.account &&
       blockchain.smartContract &&
       blockchain.account &&
-      mintAmount + props.data.totalSupply <= props.config.MAX_SUPPLY
+      mintAmount + parseInt(data.totalSupply) <= config.MAX_SUPPLY
     ) {
       //proceed with minting
       claimNFTs();
@@ -46,8 +56,8 @@ function MintNFT(props) {
 
   //Send data to Smart Contract with Metamask
   const claimNFTs = () => {
-    const cost = props.config.WEI_COST;
-    const gasLimit = props.config.GAS_LIMIT;
+    const cost = config.WEI_COST;
+    const gasLimit = config.GAS_LIMIT;
     const totalCostWei = (cost * mintAmount).toString();
     const totalGasLimit = (gasLimit * mintAmount).toString();
     setClaimingNft(true);
@@ -55,7 +65,7 @@ function MintNFT(props) {
       .mint(blockchain.account, mintAmount)
       .send({
         gasLimit: String(totalGasLimit),
-        to: props.config.CONTRACT_ADDRESS,
+        to: config.CONTRACT_ADDRESS,
         from: blockchain.account,
         value: totalCostWei,
       })
@@ -88,11 +98,15 @@ function MintNFT(props) {
   };
 
   const increaseMintAmount = () => {
-    let newMintAmount = mintAmount + 1;
-    if (newMintAmount > 100) {
-      newMintAmount = 100;
+    if (blockchain.account) {
+      let newMintAmount = mintAmount + 1;
+      if (newMintAmount > 20) {
+        newMintAmount = 20;
+      } else if (mintAmount + parseInt(data.totalSupply) >= config.MAX_SUPPLY) {
+        newMintAmount = mintAmount;
+      }
+      setMintAmount(newMintAmount);
     }
-    setMintAmount(newMintAmount);
   };
 
   //Used when minting is still active
@@ -153,6 +167,23 @@ function MintNFT(props) {
     </>
   );
 
+  const mintCompletedDisplay = (
+    <>
+      <Typography variant="h3" className={classes.mintTitle}>
+        Sold Out!
+      </Typography>
+      <Container className={classes.mintContainer} maxWidth="sm">
+        <Typography variant="h5" className={classes.mintText}>
+          {props.data.totalSupply} / {props.config.MAX_SUPPLY} minted
+        </Typography>
+        <Typography variant="h5" className={classes.mintText}>
+          There are no more Mellow Heads left to be minted. Please check out the
+          collection on OpenSea!
+        </Typography>
+      </Container>
+    </>
+  );
+
   const theme = useTheme();
   const collapse = useMediaQuery(theme.breakpoints.down("sm"));
 
@@ -172,7 +203,7 @@ function MintNFT(props) {
           </center>
         </Grid>
         <Grid item xs={collapse ? false : 4}>
-          {mintDisplay}
+          {mintingCompleted ? <>{mintCompletedDisplay}</> : <>{mintDisplay}</>}
         </Grid>
         {collapse ? (
           <></>

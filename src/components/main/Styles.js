@@ -83,13 +83,18 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     //marginTop: "48px",
     padding: "2rem 2rem 4rem 2rem",
+    [theme.breakpoints.down("sm")]: {
+      padding: "0rem 2rem 4rem 2rem",
+    },
   },
   mintTitle: {
     textAlign: "center",
     color: primaryColor,
     marginBottom: "1rem",
+    fontSize: "3rem",
     [theme.breakpoints.down("sm")]: {
       paddingTop: "3rem",
+      fontSize: "2.5rem",
     },
   },
   mintText: {
@@ -110,13 +115,13 @@ const useStyles = makeStyles((theme) => ({
     color: primaryColor,
     fontSize: "5rem",
     [theme.breakpoints.down("sm")]: {
-      fontSize: "4rem",
+      fontSize: "3.5rem",
     },
   },
   subTitle: {
     textAlign: "center",
     color: primaryColor,
-    fontSize: "1.5rem",
+    fontSize: "1.25rem",
     padding: "1rem",
   },
   //end welcome
@@ -148,6 +153,9 @@ const useStyles = makeStyles((theme) => ({
   accordianTitle: {
     fontSize: "3rem",
     color: primaryColor,
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "2.5rem",
+    },
   },
   accordianDetails: {
     borderTop: "2px solid " + secondaryColor,
@@ -157,6 +165,39 @@ const useStyles = makeStyles((theme) => ({
     color: primaryColor,
   },
   //end accordian
+  //creator details
+  creatorDetailsRoot: {
+    padding: "3rem",
+    [theme.breakpoints.down("sm")]: {
+      paddingTop: "1rem",
+    },
+  },
+  creatorDetailsTitle: {
+    textAlign: "center",
+    color: primaryColor,
+    marginBottom: "1rem",
+    fontSize: "3rem",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "2.5rem",
+    },
+  },
+  creatorDetailsGrid: { maxWidth: "90%" },
+  creatorNameText: {
+    textAlign: "center",
+    color: primaryColor,
+    fontSize: "2rem",
+    padding: "1rem",
+  },
+  creatorDetailsContainer: {
+    alignSelf: "center",
+    boxShadow:
+      "0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%)",
+    backgroundColor: "#ffecd8",
+    padding: "1rem",
+    borderRadius: "6px",
+    maxWidth: "500px",
+  },
+  //end creator details
   //footer
   footerTitle: {
     paddingBottom: "0",
@@ -164,6 +205,7 @@ const useStyles = makeStyles((theme) => ({
     color: primaryColor,
     [theme.breakpoints.down("sm")]: {
       paddingBottom: "2rem",
+      fontSize: "2.5rem",
     },
   },
   footer: {
@@ -176,6 +218,9 @@ const useStyles = makeStyles((theme) => ({
   footerText: {
     fontSize: "2rem",
     color: secondaryColor,
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "1.5rem",
+    },
   },
   footerGrid: {
     maxWidth: "80%",

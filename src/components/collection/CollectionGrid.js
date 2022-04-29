@@ -30,13 +30,17 @@ function CollectionGrid(props) {
 
   //Loop to get the json data for each owned Mellow Head
   const fetchTokenURI = async () => {
-    const tokenList = [];
     setIsLoading(true);
-    for (let i = 0; i < data.ownerTokens.length; i++) {
+    const tokenList = [];
+    //sort the owner tokens array before fetching json data
+    const ownerTokens = [...data.ownerTokens].sort(function (a, b) {
+      return a - b;
+    });
+    for (let i = 0; i < ownerTokens.length; i++) {
       //Create ipfs link from tokenURI
       const tokenURL =
         "https://mellowheads.mypinata.cloud/ipfs/QmUFEJ7uKGkTfMMa1wNqPWjdBCa2n23zx78dbWFkFcLxX8/" +
-        data.ownerTokens[i] +
+        ownerTokens[i] +
         ".json";
 
       const response = await fetch(tokenURL, {

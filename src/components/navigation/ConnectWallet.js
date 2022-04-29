@@ -5,14 +5,16 @@ import Popup from "../utils/Popup";
 import useStyles from "../main/Styles";
 
 function ConnectWallet(props) {
-  const { blockchain, getData } = props;
+  const { blockchain, getData, data } = props;
   const classes = useStyles();
   const [accountDisplay, setAccountDisplay] = useState("Connect");
 
   // Concatenate account address if connected to Metamask
   useEffect(() => {
     if (blockchain.account) {
-      getData();
+      if (data.error) {
+        getData();
+      }
       const display =
         blockchain.account.length > 4
           ? `${blockchain.account.substring(
