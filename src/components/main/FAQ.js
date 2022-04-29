@@ -133,7 +133,7 @@ function FAQ() {
               <Typography className={classes.accordianText}>
                 There is no established roadmap or additional promises that will
                 be made. If you enjoy the artwork and want to join the Mellow
-                Heads community for a low cost then I welcome you to!
+                Heads community for a low cost then I welcome you to do so!
               </Typography>
             </AccordionDetails>
           </Accordion>

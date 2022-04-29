@@ -76,7 +76,12 @@ function Footer() {
           onClick={openTwitter}
           alt=""
           src={twitterLogo}
-          style={{ width: "3.5rem", cursor: "pointer", marginTop: "16px" }}
+          style={{
+            width: "3.5rem",
+            cursor: "pointer",
+            marginTop: "16px",
+            borderRadius: "16px",
+          }}
         />
       </Container>
     </>

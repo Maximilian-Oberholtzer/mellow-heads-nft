@@ -176,6 +176,21 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "2.5rem",
     },
   },
+  creatorDetailsGrid: { maxWidth: "80%" },
+  creatorNameText: {
+    textAlign: "center",
+    color: primaryColor,
+    fontSize: "2rem",
+    padding: "1rem",
+  },
+  creatorDetailsContainer: {
+    alignSelf: "center",
+    boxShadow:
+      "0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%)",
+    backgroundColor: "#ffecd8",
+    padding: "1rem",
+    borderRadius: "6px",
+  },
   //end creator details
   //footer
   footerTitle: {
