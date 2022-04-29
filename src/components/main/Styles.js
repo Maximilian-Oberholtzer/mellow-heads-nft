@@ -200,7 +200,7 @@ const useStyles = makeStyles((theme) => ({
   //end creator details
   //footer
   footerTitle: {
-    paddingBottom: "0",
+    paddingBottom: "1rem",
     fontSize: "3rem",
     color: primaryColor,
     [theme.breakpoints.down("sm")]: {
