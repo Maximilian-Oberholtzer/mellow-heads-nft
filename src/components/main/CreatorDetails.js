@@ -16,7 +16,7 @@ function CreatorDetails() {
   const collapse = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
-    <div>
+    <div className={classes.creatorDetailsRoot}>
       <Scroll.Element id="CreatorDetails" name="CreatorDetails">
         <Typography variant="h3" className={classes.creatorDetailsTitle}>
           Meet the Creator

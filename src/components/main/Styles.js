@@ -166,17 +166,22 @@ const useStyles = makeStyles((theme) => ({
   },
   //end accordian
   //creator details
+  creatorDetailsRoot: {
+    padding: "3rem",
+    [theme.breakpoints.down("sm")]: {
+      paddingTop: "1rem",
+    },
+  },
   creatorDetailsTitle: {
     textAlign: "center",
     color: primaryColor,
     marginBottom: "1rem",
     fontSize: "3rem",
     [theme.breakpoints.down("sm")]: {
-      paddingTop: "3rem",
       fontSize: "2.5rem",
     },
   },
-  creatorDetailsGrid: { maxWidth: "80%" },
+  creatorDetailsGrid: { maxWidth: "90%" },
   creatorNameText: {
     textAlign: "center",
     color: primaryColor,
@@ -190,6 +195,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#ffecd8",
     padding: "1rem",
     borderRadius: "6px",
+    maxWidth: "500px",
   },
   //end creator details
   //footer

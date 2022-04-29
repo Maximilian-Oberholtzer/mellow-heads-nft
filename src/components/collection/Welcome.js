@@ -13,7 +13,11 @@ function Welcome(props) {
   //Check the amount of Mellow Heads the user owns
   useEffect(() => {
     if (blockchain) {
-      if (data.ownerTokens.length > 0) {
+      if (data.ownerTokens.length == 1) {
+        setCollectionStatus(
+          "You own " + data.ownerTokens.length + " Mellow Head!"
+        );
+      } else if (data.ownerTokens.length > 1) {
         setCollectionStatus(
           "You own " + data.ownerTokens.length + " Mellow Heads!"
         );
