@@ -93,6 +93,7 @@ function Navbar(props) {
             <Button
               onClick={toggleDrawer(false)}
               className={classes.navTextButton}
+              style={{ marginRight: "0" }}
             >
               <Link
                 to="/collection"
@@ -107,6 +108,7 @@ function Navbar(props) {
             <Button
               onClick={() => scrollTo("FAQ")}
               className={classes.navTextButton}
+              style={{ marginRight: "0" }}
             >
               FAQ
             </Button>
@@ -115,16 +117,25 @@ function Navbar(props) {
             <Button
               onClick={() => scrollTo("CreatorDetails")}
               className={classes.navTextButton}
+              style={{ marginRight: "0" }}
             >
               Creator
             </Button>
           </List>
           <List>
-            <Button onClick={openMarketplace} className={classes.navTextButton}>
+            <Button
+              onClick={openMarketplace}
+              className={classes.navTextButton}
+              style={{ marginRight: "0" }}
+            >
               OpenSea
             </Button>
           </List>
-          <Button onClick={openSmartContract} className={classes.navTextButton}>
+          <Button
+            onClick={openSmartContract}
+            className={classes.navTextButton}
+            style={{ marginRight: "0" }}
+          >
             Contract
           </Button>
         </Box>

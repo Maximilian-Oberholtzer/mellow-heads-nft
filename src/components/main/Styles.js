@@ -121,7 +121,7 @@ const useStyles = makeStyles((theme) => ({
   subTitle: {
     textAlign: "center",
     color: primaryColor,
-    fontSize: "1.2rem",
+    fontSize: "1.25rem",
     padding: "1rem",
   },
   //end welcome
@@ -218,6 +218,9 @@ const useStyles = makeStyles((theme) => ({
   footerText: {
     fontSize: "2rem",
     color: secondaryColor,
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "1.5rem",
+    },
   },
   footerGrid: {
     maxWidth: "80%",
