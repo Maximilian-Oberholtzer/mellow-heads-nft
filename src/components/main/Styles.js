@@ -83,6 +83,9 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     //marginTop: "48px",
     padding: "2rem 2rem 4rem 2rem",
+    [theme.breakpoints.down("sm")]: {
+      padding: "0rem 2rem 4rem 2rem",
+    },
   },
   mintTitle: {
     textAlign: "center",
@@ -110,13 +113,13 @@ const useStyles = makeStyles((theme) => ({
     color: primaryColor,
     fontSize: "5rem",
     [theme.breakpoints.down("sm")]: {
-      fontSize: "4rem",
+      fontSize: "3.5rem",
     },
   },
   subTitle: {
     textAlign: "center",
     color: primaryColor,
-    fontSize: "1.5rem",
+    fontSize: "1.2rem",
     padding: "1rem",
   },
   //end welcome
@@ -157,6 +160,16 @@ const useStyles = makeStyles((theme) => ({
     color: primaryColor,
   },
   //end accordian
+  //creator details
+  creatorDetailsTitle: {
+    textAlign: "center",
+    color: primaryColor,
+    marginBottom: "1rem",
+    [theme.breakpoints.down("sm")]: {
+      paddingTop: "3rem",
+    },
+  },
+  //end creator details
   //footer
   footerTitle: {
     paddingBottom: "0",
