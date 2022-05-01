@@ -197,6 +197,13 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "6px",
     maxWidth: "500px",
   },
+  creatorDetailsText: {
+    textAlign: "center",
+    color: primaryColor,
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "1.25rem",
+    },
+  },
   //end creator details
   //footer
   footerTitle: {
