@@ -92,6 +92,22 @@ function FAQ() {
               id="panel2a-header"
             >
               <Typography className={classes.accordianText}>
+                How many Mellow Heads am I allowed to mint?
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails className={classes.accordianDetails}>
+              <Typography className={classes.accordianText}>
+                Each address is able to mint a maximum of 100 Mellow Heads.
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+          <Accordion className={classes.accordian}>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel2a-content"
+              id="panel2a-header"
+            >
+              <Typography className={classes.accordianText}>
                 How do I buy, sell or send my Mellow Heads?
               </Typography>
             </AccordionSummary>

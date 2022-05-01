@@ -192,7 +192,13 @@ function Navbar(props) {
               >
                 <img alt="" src={mellowHeadsLogo} style={{width: "38px"}}/>
               </Link>
-              <Typography>NFT</Typography>
+              <Link
+                to="/"
+                className={classes.navTextLink}
+                style={{ textDecoration: "none" }}
+              >
+                <Typography>NFT</Typography>
+              </Link>      
             </Button>
           </Typography>
           {collapse ? drawer : navbar}
