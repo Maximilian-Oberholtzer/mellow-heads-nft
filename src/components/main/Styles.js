@@ -73,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#ffecd8",
     padding: "1rem",
     borderRadius: "6px",
-    maxWidth: "450px",
+    maxWidth: "450px !important",
     marginBottom: "2rem",
     [theme.breakpoints.down("sm")]: {
       marginBottom: "0",
@@ -181,7 +181,7 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "2.5rem",
     },
   },
-  creatorDetailsGrid: { maxWidth: "90%" },
+  creatorDetailsGrid: { maxWidth: "90% !important" },
   creatorNameText: {
     textAlign: "center",
     color: primaryColor,
@@ -195,7 +195,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#ffecd8",
     padding: "1rem",
     borderRadius: "6px",
-    maxWidth: "500px",
+    maxWidth: "500px !important",
   },
   creatorDetailsText: {
     textAlign: "center",
@@ -217,7 +217,7 @@ const useStyles = makeStyles((theme) => ({
   },
   footer: {
     padding: "3rem",
-    maxWidth: "100%",
+    maxWidth: "100% !important",
     textAlign: "center",
     backgroundColor: primaryColor,
     padding: "2rem",
