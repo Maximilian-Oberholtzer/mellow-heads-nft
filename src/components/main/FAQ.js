@@ -24,7 +24,7 @@ function FAQ() {
               id="panel1a-header"
             >
               <Typography className={classes.accordianText}>
-                How can I connect to the Matic (Polygon) network on Metamask?
+                How can I connect to the Polygon network on Metamask?
               </Typography>
             </AccordionSummary>
             <AccordionDetails className={classes.accordianDetails}>
@@ -131,7 +131,8 @@ function FAQ() {
             <AccordionDetails className={classes.accordianDetails}>
               <Typography className={classes.accordianText}>
                 Each Mellow Head is stored as an ERC-721 token on the Polygon
-                blockchain and the metadata is hosted on IPFS.
+                blockchain and the metadata is hosted on IPFS to ensure they
+                will never leave the internet.
               </Typography>
             </AccordionDetails>
           </Accordion>
@@ -149,7 +150,7 @@ function FAQ() {
               <Typography className={classes.accordianText}>
                 There is no established roadmap or additional promises that will
                 be made. If you enjoy the artwork and want to join the Mellow
-                Heads community for a low cost then I welcome you to do so!
+                Heads community for a low cost then I encourage you to do so!
               </Typography>
             </AccordionDetails>
           </Accordion>
