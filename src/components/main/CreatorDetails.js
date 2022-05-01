@@ -28,7 +28,7 @@ function CreatorDetails() {
             className={classes.creatorDetailsGrid}
           >
             <Grid item xs={collapse ? false : 6}>
-              <Typography className={classes.creatorNameText}>Feed!</Typography>
+              <Typography className={classes.creatorNameText}>Maximilian</Typography>
               <img
                 alt=""
                 src={mellowHead}
@@ -41,10 +41,10 @@ function CreatorDetails() {
                 className={classes.creatorDetailsContainer}
                 maxWidth="sm"
               >
-                <Typography variant="h5" className={classes.mintText}>
-                  Feed! (aka Maximilian) is an experienced full stack software
-                  enginner with strong interests in blockchain technology,
-                  cryptocurrencies and NFTs. Aside from programming, he is a top
+                <Typography variant="h5" className={classes.creatorDetailsText}>
+                  Max (aka Feed!) is an experienced full stack software
+                  engineer with strong interests in blockchain technology,
+                  cryptocurrency and NFTs. Aside from programming, he is a top
                   100 Rocket League player, a former collegiate tennis athlete
                   and a content creator.
                 </Typography>

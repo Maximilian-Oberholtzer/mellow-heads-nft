@@ -10,7 +10,7 @@ import {
 import ConnectWallet from "./ConnectWallet";
 import useStyles from "../main/Styles";
 import MenuIcon from "@mui/icons-material/Menu";
-import mellowHeadsLogo from "../../media/mellowHeadsLogo.png";
+import mellowHeadsLogo from "../../media/mellowHeadsLogo.svg";
 import { Drawer, Box, List } from "@material-ui/core";
 import * as Scroll from "react-scroll";
 import { Link, useNavigate } from "react-router-dom";
@@ -184,14 +184,21 @@ function Navbar(props) {
       <AppBar className={classes.navbar} position="static">
         <Toolbar>
           <Typography className={classes.navTitle}>
-            <Button className={classes.navTextButton}>
+            <Button className={classes.navTextButton} style={{marginTop: "6px"}}>
               <Link
                 to="/"
                 className={classes.navTextLink}
                 style={{ textDecoration: "none" }}
               >
-                MHNFT
+                <img alt="" src={mellowHeadsLogo} style={{width: "38px"}}/>
               </Link>
+              <Link
+                to="/"
+                className={classes.navTextLink}
+                style={{ textDecoration: "none" }}
+              >
+                <Typography>NFT</Typography>
+              </Link>      
             </Button>
           </Typography>
           {collapse ? drawer : navbar}

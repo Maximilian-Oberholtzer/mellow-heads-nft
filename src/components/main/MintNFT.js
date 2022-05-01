@@ -117,10 +117,16 @@ function MintNFT(props) {
       </Typography>
       <Container className={classes.mintContainer} maxWidth="sm">
         <Typography variant="h5" className={classes.mintText}>
-          Each Mellow Head costs {props.config.DISPLAY_COST} Matic
+          Each Mellow Head costs {config.DISPLAY_COST} Matic
         </Typography>
         <Typography variant="h5" className={classes.mintText}>
-          {props.data.totalSupply} / {props.config.MAX_SUPPLY} minted
+          {blockchain.account ? (
+            <>
+              {data.totalSupply} / {config.MAX_SUPPLY} minted
+            </>
+          ) : (
+            <>Connect your wallet to mint</>
+          )}
         </Typography>
         <div className={classes.mintText}>
           <IconButton
