@@ -121,8 +121,11 @@ const useStyles = makeStyles((theme) => ({
   subTitle: {
     textAlign: "center",
     color: primaryColor,
-    fontSize: "1.25rem",
+    fontSize: "1.5rem",
     padding: "1rem",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "1.25rem",
+    },
   },
   //end welcome
   //popup
