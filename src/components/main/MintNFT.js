@@ -64,6 +64,7 @@ function MintNFT(props) {
     blockchain.smartContract.methods
       .mint(blockchain.account, mintAmount)
       .send({
+        maxPriorityFeePerGas: 50000000000,
         gasLimit: String(totalGasLimit),
         to: config.CONTRACT_ADDRESS,
         from: blockchain.account,
