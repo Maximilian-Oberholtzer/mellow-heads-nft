@@ -42,11 +42,11 @@ function Navbar(props) {
   };
 
   const openMarketplace = () => {
-    window.open(props.config.MARKETPLACE_LINK);
+    window.open(props.config.MARKETPLACE_LINK, "_blank");
   };
 
   const openSmartContract = () => {
-    window.open(props.config.SCAN_LINK);
+    window.open(props.config.SCAN_LINK, "_blank");
   };
 
   const toggleDrawer = (isOpen) => (event) => {
@@ -184,13 +184,16 @@ function Navbar(props) {
       <AppBar className={classes.navbar} position="static">
         <Toolbar>
           <Typography className={classes.navTitle}>
-            <Button className={classes.navTextButton} style={{marginTop: "6px"}}>
+            <Button
+              className={classes.navTextButton}
+              style={{ marginTop: "6px" }}
+            >
               <Link
                 to="/"
                 className={classes.navTextLink}
                 style={{ textDecoration: "none" }}
               >
-                <img alt="" src={mellowHeadsLogo} style={{width: "38px"}}/>
+                <img alt="" src={mellowHeadsLogo} style={{ width: "38px" }} />
               </Link>
               <Link
                 to="/"
@@ -198,7 +201,7 @@ function Navbar(props) {
                 style={{ textDecoration: "none" }}
               >
                 <Typography>NFT</Typography>
-              </Link>      
+              </Link>
             </Button>
           </Typography>
           {collapse ? drawer : navbar}
