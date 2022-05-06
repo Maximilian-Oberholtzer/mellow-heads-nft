@@ -34,6 +34,7 @@ function FAQ() {
                 assistance.{"  "}
                 <a
                   href="https://docs.polygon.technology/docs/develop/metamask/config-polygon-on-metamask/"
+                  target="_blank"
                   style={{ textDecoration: "none" }}
                   className={classes.navTextLink}
                 >
@@ -60,6 +61,7 @@ function FAQ() {
                 Matic to the Polygon Network.{"  "}
                 <a
                   href="https://wallet.polygon.technology/"
+                  target="_blank"
                   style={{ textDecoration: "none" }}
                   className={classes.navTextLink}
                 >
